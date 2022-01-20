@@ -1,2 +1,1 @@
-# Git and Github
-Social network
+# Social network on React
