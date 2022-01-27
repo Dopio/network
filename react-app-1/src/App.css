@@ -5,7 +5,6 @@
 
 body {
   font-weight: 400px;
-  /* ------Header-------------------------------------------------- */
 }
 
 body .body__wrapper {
@@ -24,97 +23,5 @@ body .body__wrapper {
   padding: 0 15px;
   -webkit-box-sizing: content-box;
           box-sizing: content-box;
-}
-
-.Header {
-  background-color: #FFFFFF;
-}
-
-.header__container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 80px;
-  max-width: 1210px;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-}
-
-.header__logo {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  max-width: 130px;
-  width: 100%;
-  border-right: 1px solid #E5E5E5;
-}
-
-.header__menu {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  padding-right: 20px;
-  border-right: 1px solid #E5E5E5;
-}
-
-.header__menu_item_text {
-  text-align: center;
-  font-size: 12px;
-  line-height: calc(11/12*100%);
-  color: #181818;
-  text-transform: uppercase;
-  font-weight: 600;
-}
-
-.header__menu_item_text:hover {
-  color: #0275B1;
-  -webkit-transition: color 0.2s;
-  transition: color 0.2s;
-}
-
-.header__menu_item_image {
-  margin: 18px 33px 10px 33px;
-}
-
-.header__search {
-  max-width: 367px;
-  width: 100%;
-  border-right: 1px solid #E5E5E5;
-}
-
-/* ------Sidebar-------------------------------------------------- */
-.sidebar {
-  background-color: #FFFFFF;
-  max-width: 290px;
-  width: 100%;
-}
-
-/* ------Profile-------------------------------------------------- */
-.profile {
-  background-color: #FFFFFF;
-  max-width: 850px;
-  width: 100%;
-  padding: 15px;
-}
-
-.profile__avatar {
-  max-width: 250px;
-  width: 100%;
-  padding: 0 20px 20px 0;
-}
-
-.profile__header {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
 }
 /*# sourceMappingURL=App.css.map */

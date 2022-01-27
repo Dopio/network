@@ -1,10 +1,11 @@
 import React from 'react';
-import Logo from './../img/Logo.svg'
-import rss from './../img/rss.svg'
-import users from './../img/users.svg'
-import briefcase from './../img/briefcase.svg'
-import Vector from './../img/Vector.svg'
-import bell from './../img/bell.svg'
+import Logo from './../img/Logo.svg';
+import rss from './../img/rss.svg';
+import users from './../img/users.svg';
+import briefcase from './../img/briefcase.svg';
+import Vector from './../img/Vector.svg';
+import bell from './../img/bell.svg';
+import './Header.css';
 
 
 const Header = () => {

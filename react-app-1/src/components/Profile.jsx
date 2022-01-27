@@ -1,6 +1,6 @@
 import React from 'react';
-import ava from './../img/profile/ava.jpg'
-
+import ava from './../img/profile/ava.jpg';
+import './Profile.css';
 
 
 const Profile = () => {

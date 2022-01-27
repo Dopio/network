@@ -1,0 +1,14 @@
+.profile{
+    background-color: #FFFFFF;
+    max-width: 850px;
+    width: 100%;
+    padding: 15px;
+}
+.profile__avatar{
+    max-width: 250px;
+    width: 100%;
+    padding: 0 20px 20px 0;
+}
+.profile__header{
+    display: flex;
+}
