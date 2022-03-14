@@ -1,0 +1,9 @@
+.mySendPosts_post {
+    display: flex;
+    margin-bottom: 10px;
+}
+.mySendPosts_post img{
+    width: 50px;
+    margin-right: 10px;
+    border-radius: 10px;
+}

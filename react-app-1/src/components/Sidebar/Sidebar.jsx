@@ -1,10 +1,10 @@
 import React from 'react';
-import './Sidebar.css';
+import classes from './Sidebar.module.css';
 
 
 const Sidebar = () => {
   return (
-    <header className='sidebar'>
+    <header className={classes.sidebar}>
       <div className='sidebar__container'>
         sidebar
       </div>
