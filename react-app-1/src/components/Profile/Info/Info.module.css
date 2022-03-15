@@ -1,0 +1,8 @@
+.profile__avatar{
+    max-width: 250px;
+    width: 100%;
+    padding: 0 20px 20px 0;
+}
+.profile__info{
+    display: flex;
+}

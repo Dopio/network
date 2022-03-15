@@ -26,12 +26,12 @@ const Header = () => {
           </div>
         <div className={classes.header__menu}>
           <div className='header__menu_item'>
-          <Link to='/Dialogs'>
-            <div className={classes.header__menu_item_image}>
-              <img src={rss} alt='' />
-            </div>
-            <div className={classes.header__menu_item_text}>messeges</div>
-          </Link>
+            <Link to='/Dialogs'>
+              <div className={classes.header__menu_item_image}>
+                <img src={rss} alt='' />
+              </div>
+              <div className={classes.header__menu_item_text}>messeges</div>
+            </Link>
           </div>
           <div className='header__menu_item'>
             <div className={classes.header__menu_item_image}>

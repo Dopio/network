@@ -50,3 +50,7 @@
     max-height: 50px;
     text-align: center;
 }
+
+a {
+    text-decoration: none;
+  }
