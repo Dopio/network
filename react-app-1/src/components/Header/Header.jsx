@@ -1,10 +1,10 @@
 import React from 'react';
-import Logo from './../../img/Logo.svg';
-import rss from './../../img/rss.svg';
-import users from './../../img/users.svg';
-import briefcase from './../../img/briefcase.svg';
-import Vector from './../../img/Vector.svg';
-import bell from './../../img/bell.svg';
+import Logo from './../../img/Header/Logo.svg';
+import rss from './../../img/Header/rss.svg';
+import users from './../../img/Header/users.svg';
+import briefcase from './../../img/Header/briefcase.svg';
+import Vector from './../../img/Header/Vector.svg';
+import bell from './../../img/Header/bell.svg';
 import classes from './Header.module.css';
 import {Link} from "react-router-dom";
 

@@ -5,9 +5,11 @@ import Profile from './components/Profile/Profile.jsx';
 import Sidebar from './components/Sidebar/Sidebar.jsx';
 import Dialogs from './components/Dialogs/Dialogs';
 import {Route} from "react-router-dom";
+import {BrowserRouter} from "react-router-dom";
 
 const App = () => {
   return (
+    <BrowserRouter>
       <div className="wrapper">
         <Header />
         <body className='body _container'>
@@ -20,6 +22,7 @@ const App = () => {
           </div>
         </body>
       </div>
+    </BrowserRouter>
   );
 }
 export default App;
