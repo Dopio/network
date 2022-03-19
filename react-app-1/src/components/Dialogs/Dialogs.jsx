@@ -9,6 +9,14 @@ const Dialogs = (props) => {
     let friendsElements = props.state.dialogsData.map(dialog => <FriendDialoge name={dialog.name} id={dialog.id}/>);
     let messagesElements = props.state.messagesData.map(mes => <Message message={mes.message}/>);
 
+    let addMessages = () => {
+        let text = newMessageElement.current.value;
+        props.addMessage(text);
+        newMessageElement.current.value = '';
+    };
+
+    let newMessageElement = React.createRef();
+
     return (
     <div className={classes.dialog}>
         <div className={classes.dialog__container}>
@@ -26,6 +34,10 @@ const Dialogs = (props) => {
                 </div>
                 <div className={classes.dialog__messages_list}>
                     {messagesElements}
+                </div>
+                <div  className={classes.messages__input}>
+                    <input type='text' ref={newMessageElement} className={classes.messages__input_input}/>
+                    <button onClick={addMessages} className={classes.messages__button}>Send</button>
                 </div>
             </div>
         </div>

@@ -17,8 +17,12 @@ const App = (props) => {
         <body className='body _container'>
           <div className='body__wrapper'>
             <div className='main__wrapper'>
-              <Route path="/Dialogs" render={() => <Dialogs state={props.state.messagesPage}/>}/>
-              <Route path="/profile" render={() => <Profile state={props.state.profilePage}/>}/>
+              <Route path="/Dialogs" render={() => <Dialogs 
+                state={props.state.messagesPage} 
+                addMessage={props.addMessage}/>}/>
+              <Route path="/profile" render={() => <Profile 
+                state={props.state.profilePage} 
+                addPost={props.addPost}/>}/>
             </div>
             <Sidebar />
           </div>
@@ -27,4 +31,5 @@ const App = (props) => {
     </BrowserRouter>
   );
 };
+
 export default App;

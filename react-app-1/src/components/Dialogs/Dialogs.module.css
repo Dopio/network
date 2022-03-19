@@ -25,3 +25,7 @@
     text-align: center;
     justify-content: center;
 }
+
+.messages__input_input{
+    margin-right: 5px;
+}
