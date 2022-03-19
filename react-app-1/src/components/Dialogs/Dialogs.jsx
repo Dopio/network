@@ -4,24 +4,10 @@ import FriendDialoge from './Friend/Friend';
 import Message from './Message/Message';
 
 
-const Dialogs = () => {
-
-    let dialogsData = [
-        {name: 'Chel 0', id: '1'},
-        {name: 'Chel 1', id: '2'},
-        {name: 'Chel 2', id: '3'},
-    ];
-
-    let friendsElements = dialogsData.map(dialog => <FriendDialoge name={dialog.name} id={dialog.id}/>);
-
-    let messagesData = [
-        {message: 'Hi', id: '0'},
-        {message: 'Bruh', id: '1'},
-        {message: 'Wtb', id: '2'},
-        {message: 'Egzi', id: '3'},
-    ];
-
-    let messagesElements = messagesData.map(mes => <Message message={mes.message}/>);
+const Dialogs = (props) => {
+    
+    let friendsElements = props.state.dialogsData.map(dialog => <FriendDialoge name={dialog.name} id={dialog.id}/>);
+    let messagesElements = props.state.messagesData.map(mes => <Message message={mes.message}/>);
 
     return (
     <div className={classes.dialog}>
