@@ -1,3 +1,7 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
+
 let store = {
     _callSubscriber() {
         console.log('State wtf')
@@ -34,12 +38,6 @@ let store = {
         this._callSubscriber = observer; // observer (pattern)
     },
 
-
-    /* updateNewPostText(newText) {
-        this._state.profilePage.newPostText = newText;
-        this._callSubscriber(this._state);
-    }, */
-
     addMessage(dialogMessage) {
         let newMessage = {message: dialogMessage, id: '4'};
         this._state.messagesPage.messagesData.push(newMessage);
@@ -47,18 +45,21 @@ let store = {
     },
 
     dispatch(action) {
-        debugger;
-        if (action.type === 'ADD-POST') {
-            debugger;
+        if (action.type === ADD_POST) {
             let newPost = {id: 2, message: this._state.profilePage.newPostText, likesCount: 0};
             this._state.profilePage.postsData.push(newPost);
             this._state.profilePage.newPostText = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText;
             this._callSubscriber(this._state);
         }
     },
 };
+
+
+export const addPostActionCreator = () => ({type: ADD_POST})
+export const onPostChangeActionCreator = (text) =>
+    ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
 export default store;
