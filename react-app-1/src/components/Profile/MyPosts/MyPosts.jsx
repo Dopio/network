@@ -18,13 +18,17 @@ const MyPosts = (props) => {
         props.dispatch (action);
     };
 
-    let newPostElement = React.createRef();
 
+    let newPostElement = React.createRef();
 
     return (
     <div className='profile__container'>
         <div className='myPosts'>My posts</div>
-        <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}/>
+        <textarea
+            onChange={onPostChange}
+            ref={newPostElement}
+            value={props.newPostText}
+        />
         <div className={classes.profile__button}>
             <button onClick={addPosts} className={classes.profile__button_button}>Send</button>
         </div>

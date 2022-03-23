@@ -2,18 +2,28 @@ import React from 'react';
 import classes from './Dialogs.module.css';
 import FriendDialoge from './Friend/Friend';
 import Message from './Message/Message';
+import {addMessageActionCreator, onMessageChangeActionCreator} from '../../redux/state';
 
 
 const Dialogs = (props) => {
     
-    let friendsElements = props.state.dialogsData.map(dialog => <FriendDialoge name={dialog.name} id={dialog.id}/>);
-    let messagesElements = props.state.messagesData.map(mes => <Message message={mes.message}/>);
+    let friendsElements = props.messagesPage.dialogsData.map(dialog => 
+        <FriendDialoge name={dialog.name} id={dialog.id}
+    />);
+    let messagesElements = props.messagesPage.messagesData.map(mes =>
+        <Message message={mes.message}
+    />);
 
     let addMessages = () => {
-        let text = newMessageElement.current.value;
-        props.addMessage(text);
-        newMessageElement.current.value = '';
+        props.dispatch(addMessageActionCreator());
     };
+
+    let onMessageChange = () => {
+        let text = newMessageElement.current.value;
+        let action = onMessageChangeActionCreator(text);
+        props.dispatch (action);
+    };
+
 
     let newMessageElement = React.createRef();
 
@@ -36,7 +46,12 @@ const Dialogs = (props) => {
                     {messagesElements}
                 </div>
                 <div  className={classes.messages__input}>
-                    <input type='text' ref={newMessageElement} className={classes.messages__input_input}/>
+                    <textarea
+                        onChange={onMessageChange}
+                        ref={newMessageElement}
+                        value={props.newMessageText}
+                        className={classes.messages__textarea}
+                    />
                     <button onClick={addMessages} className={classes.messages__button}>Send</button>
                 </div>
             </div>
