@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {Provider} from './StoreContext'
+import {Provider} from 'react-redux'
 
 
 let rerenderEntireTree = () => {
@@ -25,6 +25,5 @@ let rerenderEntireTree = () => {
 rerenderEntireTree(store.getState());
 
 store.subscribe( () => {
-  let state = store.getState();
   rerenderEntireTree();
 });
