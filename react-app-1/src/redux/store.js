@@ -1,5 +1,5 @@
 import {profileReducer} from './profile-reducer';
-import { messagesReducer } from './messages-reducer';
+import {messagesReducer} from './messages-reducer';
 
 
 let store = {
