@@ -8,7 +8,7 @@ import {Route} from "react-router-dom";
 import {BrowserRouter} from "react-router-dom";
 
 
-const App = (props) => {
+const App = () => {
 
   return (
     <BrowserRouter>
@@ -17,13 +17,8 @@ const App = (props) => {
         <body className='body _container'>
           <div className='body__wrapper'>
             <div className='main__wrapper'>
-              <Route path="/Dialogs" render={() => <DialogsContainer
-                store={props.store}
-              />}/>
-              <Route path="/profile" render={() => <Profile 
-                store={props.store}
-              />}/>
-                
+              <Route path="/Dialogs" render={() => <DialogsContainer/>}/>
+              <Route path="/profile" render={() => <Profile/>}/>
             </div>
             <Sidebar />
           </div>
