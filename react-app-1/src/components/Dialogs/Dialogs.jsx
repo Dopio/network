@@ -6,19 +6,19 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
     let friendsElements = props.dialogsData.map(dialog => 
-        <FriendDialoge name={dialog.name} id={dialog.id}
+        <FriendDialoge name={dialog.name} key={dialog.id} id={dialog.id}
     />);
     let messagesElements = props.messagesData.map(mes =>
-        <Message message={mes.message}
+        <Message message={mes.message} key={mes.id}
     />);
 
     let onaddMessages = () => {
-        props.addMessages();
+        props.sendMessage();
     };
 
-    let onMessageChange = () => {
+    let onNewMessageChange = () => {
         let text = newMessageElement.current.value;
-        props.updateNewMessageText(text);
+        props.onMessageChange(text);
     };
 
     let newMessageElement = React.createRef();
@@ -43,7 +43,7 @@ const Dialogs = (props) => {
                 </div>
                 <div  className={classes.messages__input}>
                     <textarea
-                        onChange={onMessageChange}
+                        onChange={onNewMessageChange}
                         ref={newMessageElement}
                         value={props.newMessageText}
                         className={classes.messages__textarea}

@@ -5,7 +5,7 @@ import Post from './Post/Post.jsx';
 
 const MyPosts = (props) => {
 
-    let postsElements = props.postsData.map(po => <Post message={po.message}/>);
+    let postsElements = props.postsData.map(po => <Post message={po.message} key={po.id}/>);
 
     let onAddPosts = () => {
         props.addPosts();

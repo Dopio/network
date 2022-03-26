@@ -53,7 +53,7 @@ const Header = () => {
           </div>
         </div>
         <div className={classes.header__search}>
-          <input type={Text} className={classes.header__search_search} />
+          <input className={classes.header__search_search} />
         </div>
       </div>
     </header>
