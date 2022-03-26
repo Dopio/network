@@ -40,10 +40,14 @@ const Header = () => {
             <div className={classes.header__menu_item_text}>jobs</div>
           </div>
           <div className='header__menu_item'>
-            <div className={classes.header__menu_item_image}>
-              <img src={Vector} alt='' />
-            </div>
-            <div className={classes.header__menu_item_text}>chat</div>
+            <Link to='/Users'>
+              <div className={classes.header__menu_item_image}>
+                <img src={Vector} alt='' />
+              </div>
+              <div className={classes.friends}>
+                <div className={classes.header__menu_item_text}>Users</div>
+              </div>
+            </Link>
           </div>
           <div className='header__menu_item'>
             <div className={classes.header__menu_item_image}>

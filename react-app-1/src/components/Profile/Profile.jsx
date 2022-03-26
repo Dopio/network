@@ -8,7 +8,7 @@ const Profile = () => {
 
   return (
     <div className={classes.profile}>
-      <div className='profile__container'>
+      <div className={classes.profile__container}>
         <Info/>
         <MyPostsContainer/>
       </div>
@@ -16,4 +16,4 @@ const Profile = () => {
   );
 };
 
-export default Profile
+export default Profile;

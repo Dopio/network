@@ -1,6 +1,6 @@
 import React from 'react';
 import classes from './Dialogs.module.css';
-import FriendDialoge from './Friend/Friend';
+import FriendDialoge from './Users/Users';
 import Message from './Message/Message';
 
 
@@ -56,4 +56,4 @@ const Dialogs = (props) => {
     );
   };
   
-  export default Dialogs
+  export default Dialogs;
