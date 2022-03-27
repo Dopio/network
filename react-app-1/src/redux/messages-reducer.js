@@ -38,6 +38,6 @@ export const messagesReducer = (state = initialState, action) => {
     };
 };
 
-export const sendMessageActionCreator = () => ({type: SEND_MESSAGE})
+export const sendMessageActionCreator = () => ({type: SEND_MESSAGE});
 export const onMessageChangeActionCreator = (text) =>
-    ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
+    ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text});

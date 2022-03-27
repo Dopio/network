@@ -1,10 +1,11 @@
 import React from 'react';
 import classes from './Dialogs.module.css';
-import FriendDialoge from './Users/Users';
+import FriendDialoge from './Friends/Friends';
 import Message from './Message/Message';
 
 
 const Dialogs = (props) => {
+    
     let friendsElements = props.dialogsData.map(dialog => 
         <FriendDialoge name={dialog.name} key={dialog.id} id={dialog.id}
     />);
