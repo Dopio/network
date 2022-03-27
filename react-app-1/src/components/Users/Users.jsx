@@ -1,46 +1,56 @@
 import React from 'react';
 import classes from './Users.module.css';
-import User from './User/User.jsx';
+import avatar from '../.././img/Users/Anonymous_emblem.png'
 
 
 const Users = (props) => {
-    
-    let usersElements = props.users.map(users => <User
-        name={users.name}
-        key={users.id}
-        status={users.status}
-        location={users.location}
-    />);
 
+    let showMoreUsers = () => {
+        props.setUsers();
+    };
 
-    return <div className={classes.users}>
-                <div className={classes.users__container}>
-                    <div className={classes.avatar}>
-                        <img  src='#' className={classes.avatarImage} alt='ava'/>
-                    </div>
-                    <div className={classes.body}>
-                        <div className={classes.userInfo}>
-                            <div className={classes.userName}>
-                                Sas
-                            </div>
-                            <div className={classes.userLocation}>
-                                Spb
-                            </div>
+    return <div>
+        {
+            props.users.map(users => <div key={users.id}>
+                <div className={classes.users}>
+                    <div className={classes.users__container}>
+                        <div className={classes.avatar}>
+                            <img  src={avatar} className={classes.avatarImage} alt='ava'/>
                         </div>
-                        <div className={classes.userStatus}>
-                            My status is Rofler?
-                        </div>
-                        <div className={classes.userConnect}>
-                            <div className={classes.userWtireMessage}>
-                                userWtireMessage
+                        <div className={classes.body}>
+                            <div className={classes.userInfo}>
+                                <div className={classes.userName}>
+                                    {users.name}
+                                </div>
+                                <div className={classes.userLocation}>
+                                    <div className={classes.userCity}>
+                                        {users.location.city}
+                                    </div>
+                                    <div className={classes.userCountry}>
+                                        {users.location.country}
+                                    </div>
+                                </div>
                             </div>
-                            <div className={classes.userFollow}>
-                                userFollow
+                            <div className={classes.userStatus}>
+                                {users.status}
+                            </div>
+                            <div className={classes.userConnect}>
+                                <div className={classes.userWtireMessage}>
+                                    userWtireMessage
+                                </div>
+                                <div className={classes.userFollow}>
+                                    userFollow
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>)
+        }
+        <div className={classes.showMore}>
+            <button onClick={showMoreUsers} className={classes.showMore__button}>Show more</button>
+        </div>
+    </div>
 };
 
 export default Users;

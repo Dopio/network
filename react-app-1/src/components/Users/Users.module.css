@@ -1,6 +1,8 @@
-.users__container {
+.users__container{
     display: flex;
-    margin: 5px;
+}
+.users__container:not(last-child){
+    margin-bottom: 20px;
 }
 
 .avatar {
@@ -25,12 +27,20 @@
     display: flex;
 }
 
-.userName{
-    margin-right: 20px;
-}
-
 .userConnect {
     display: flex;
     justify-content: space-between;
     width: 100%;
+}
+
+.userName{
+    margin-right: 20px;
+}
+
+.userLocation{
+    display: flex;
+}
+
+.userCity{
+    margin-right: 10px;
 }
