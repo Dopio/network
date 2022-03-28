@@ -5,8 +5,8 @@ import Profile from './components/Profile/Profile.jsx';
 import Sidebar from './components/Sidebar/Sidebar.jsx';
 import UsersContainer from './components/Users/Users-container.jsx';
 import DialogsContainer from './components/Dialogs/Dialogs-container';
-import {Route} from "react-router-dom";
-import {BrowserRouter} from "react-router-dom";
+import { Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 
 const App = () => {
@@ -18,9 +18,9 @@ const App = () => {
         <body className='body _container'>
           <div className='body__wrapper'>
             <div className='main__wrapper'>
-              <Route path="/Dialogs" render={() => <DialogsContainer/>}/>
-              <Route path="/Profile" render={() => <Profile/>}/>
-              <Route path="/Users" render={() => <UsersContainer/>}/>
+              <Route path="/Dialogs" render={() => <DialogsContainer />} />
+              <Route path="/Profile" render={() => <Profile />} />
+              <Route path="/Users" render={() => <UsersContainer />} />
             </div>
             <Sidebar />
           </div>

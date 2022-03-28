@@ -1,5 +1,5 @@
-import {profileReducer} from './myPosts-reducer';
-import {messagesReducer} from './messages-reducer';
+import { profileReducer } from './myPosts-reducer';
+import { messagesReducer } from './messages-reducer';
 
 
 let store = {
@@ -18,23 +18,23 @@ let store = {
     _state: {
         profilePage: {
             postsData: [
-                {id: '0', message: 'Hi, amogus', likesCount: 0},
-                {id: '1', message: 'Hardcoding', likesCount: 16},
+                { id: '0', message: 'Hi, amogus', likesCount: 0 },
+                { id: '1', message: 'Hardcoding', likesCount: 16 },
             ],
             newPostText: '',
         },
         messagesPage: {
             messagesData: [
-                {id: '0', message: 'Hi'},
-                {id: '1', message: 'Bruh'},
-                {id: '2', message: 'Wtb'},
-                {id: '3', message: 'Egzi'},
+                { id: '0', message: 'Hi' },
+                { id: '1', message: 'Bruh' },
+                { id: '2', message: 'Wtb' },
+                { id: '3', message: 'Egzi' },
             ],
             newMessageText: '',
             dialogsData: [
-                {name: 'Chel 0', id: '1'},
-                {name: 'Chel 1', id: '2'},
-                {name: 'Chel 2', id: '3'},
+                { name: 'Chel 0', id: '1' },
+                { name: 'Chel 1', id: '2' },
+                { name: 'Chel 2', id: '3' },
             ],
         },
         sidebar: {},

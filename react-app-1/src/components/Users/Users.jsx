@@ -4,10 +4,12 @@ import avatar from '../.././img/Users/Anonymous_emblem.png'
 
 
 const Users = (props) => {
-
-    let showMoreUsers = () => {
-        props.setUsers();
-    };
+    if (props.users.length === 0) {
+        props.setUsers([
+            { id: 0, followed: false, name: 'Igor', status: 'Iam Hungry', location: { city: 'Samara', country: 'Ukrain' } },
+            { id: 1, followed: true, name: 'Rodg', status: 'Hi hi, da?', location: { city: 'Ostashkov', country: 'Russia' } },
+        ])
+    }
 
     return <div>
         {
@@ -15,7 +17,7 @@ const Users = (props) => {
                 <div className={classes.users}>
                     <div className={classes.users__container}>
                         <div className={classes.avatar}>
-                            <img  src={avatar} className={classes.avatarImage} alt='ava'/>
+                            <img src={avatar} className={classes.avatarImage} alt='ava' />
                         </div>
                         <div className={classes.body}>
                             <div className={classes.userInfo}>
@@ -39,7 +41,11 @@ const Users = (props) => {
                                     userWtireMessage
                                 </div>
                                 <div className={classes.userFollow}>
-                                    userFollow
+                                    {users.followed
+                                        ? <button onClick={() => { props.unFollow(users.id) }}>Unfollow</button>
+                                        : <button onClick={() => { props.follow(users.id) }}>Follow</button>
+                                    }
+
                                 </div>
                             </div>
                         </div>
@@ -47,9 +53,9 @@ const Users = (props) => {
                 </div>
             </div>)
         }
-        <div className={classes.showMore}>
+        {/*         <div className={classes.showMore}>
             <button onClick={showMoreUsers} className={classes.showMore__button}>Show more</button>
-        </div>
+        </div> */}
     </div>
 };
 
