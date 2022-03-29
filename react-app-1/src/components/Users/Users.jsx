@@ -1,15 +1,23 @@
 import React from 'react';
 import classes from './Users.module.css';
 import avatar from '../.././img/Users/Anonymous_emblem.png'
+import * as axios from 'axios';
 
 
 const Users = (props) => {
-    if (props.users.length === 0) {
+
+    axios.get('https://social-network.samuraijs.com/api/1.0/users').then(responce => {
+
+        props.setUsers(responce.data.items)
+    });
+
+
+/*     if (props.users.length === 0) {
         props.setUsers([
             { id: 0, followed: false, name: 'Igor', status: 'Iam Hungry', location: { city: 'Samara', country: 'Ukrain' } },
             { id: 1, followed: true, name: 'Rodg', status: 'Hi hi, da?', location: { city: 'Ostashkov', country: 'Russia' } },
         ])
-    }
+    } */
 
     return <div>
         {
@@ -17,7 +25,7 @@ const Users = (props) => {
                 <div className={classes.users}>
                     <div className={classes.users__container}>
                         <div className={classes.avatar}>
-                            <img src={avatar} className={classes.avatarImage} alt='ava' />
+                            <img src={users.photos.small !=null ? users.photos.small : avatar} className={classes.avatarImage} alt='ava' />
                         </div>
                         <div className={classes.body}>
                             <div className={classes.userInfo}>
@@ -26,10 +34,10 @@ const Users = (props) => {
                                 </div>
                                 <div className={classes.userLocation}>
                                     <div className={classes.userCity}>
-                                        {users.location.city}
+                                        {/* {users.location.city} */}
                                     </div>
                                     <div className={classes.userCountry}>
-                                        {users.location.country}
+                                        {/* {users.location.country} */}
                                     </div>
                                 </div>
                             </div>
