@@ -13,6 +13,10 @@ let rootReducer = combineReducers({
     usersPage: usersReducer,
 });
 
-const store = createStore(rootReducer, composeWithDevTools());
+const composeEnchancers = composeWithDevTools ({
+    trace: true,
+})
+
+const store = createStore(rootReducer, composeEnchancers());
 
 export default store;

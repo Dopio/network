@@ -6,18 +6,11 @@ import * as axios from 'axios';
 
 const Users = (props) => {
 
-    axios.get('https://social-network.samuraijs.com/api/1.0/users').then(responce => {
-
-        props.setUsers(responce.data.items)
-    });
-
-
-/*     if (props.users.length === 0) {
-        props.setUsers([
-            { id: 0, followed: false, name: 'Igor', status: 'Iam Hungry', location: { city: 'Samara', country: 'Ukrain' } },
-            { id: 1, followed: true, name: 'Rodg', status: 'Hi hi, da?', location: { city: 'Ostashkov', country: 'Russia' } },
-        ])
-    } */
+    if (props.users.length === 0) {
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(responce => {
+            props.setUsers(responce.data.items);
+        });
+    }
 
     return <div>
         {
