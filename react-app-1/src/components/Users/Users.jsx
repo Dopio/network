@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import classes from './Users.module.css';
 import avatar from '../.././img/Users/Anonymous_emblem.png'
 import * as axios from 'axios';
@@ -6,11 +6,13 @@ import * as axios from 'axios';
 
 const Users = (props) => {
 
-    if (props.users.length === 0) {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(responce => {
-            props.setUsers(responce.data.items);
-        });
-    }
+    useEffect(() => {
+        if (props.users.length === 0) {
+            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(responce => {
+                props.setUsers(responce.data.items);
+            });
+        }
+    },[]);
 
     return <div>
         {
