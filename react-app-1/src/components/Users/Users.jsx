@@ -56,7 +56,7 @@ const Users = (props) => {
                 </div>
             </div>)
         }
-        {/*         <div className={classes.showMore}>
+        {/* <div className={classes.showMore}>
             <button onClick={showMoreUsers} className={classes.showMore__button}>Show more</button>
         </div> */}
     </div>
