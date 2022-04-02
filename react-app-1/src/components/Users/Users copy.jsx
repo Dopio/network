@@ -7,12 +7,22 @@ import * as axios from 'axios';
 class Users extends React.Component {
 
     componentDidMount() {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(responce => {
-            this.props.setUsers(responce.data.items);
-        });
-    }
+        if (this.props.users.length === 0) {
+            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(responce => {
+                this.props.setUsers(responce.data.items);
+            });
+        }
+    };
 
     render () {
+
+        let pagesCount = this.props.totalUsersCount / this.props.pageSize;
+
+        let pages = [];
+        for (let i=1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
+
         return <div>
             {
                 this.props.users.map(users => <div key={users.id}>
@@ -60,6 +70,22 @@ class Users extends React.Component {
             }
             <div className={classes.showMore}>
                 <button onClick={this.getUsers} className={classes.showMore__button}>Show more</button>
+            </div>
+            <div className={classes.pages}>
+                {/* {pages.map(pages =>{
+                    <ul>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                })} */}
+
+                    <ul className={classes.ul}>
+                        <li>1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+
             </div>
         </div>
     }
