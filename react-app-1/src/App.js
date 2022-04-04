@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Header from './components/Header/Header.jsx';
-import Profile from './components/Profile/Profile.jsx';
+import ProfileContainer from './components/Profile/Profile-container.jsx';
 import Sidebar from './components/Sidebar/Sidebar.jsx';
 import UsersContainer from './components/Users/Users-container.jsx';
 import DialogsContainer from './components/Dialogs/Dialogs-container';
@@ -19,7 +19,7 @@ const App = () => {
           <div className='body__wrapper'>
             <div className='main__wrapper'>
               <Route path="/Dialogs" render={() => <DialogsContainer />} />
-              <Route path="/Profile" render={() => <Profile />} />
+              <Route path="/Profile" render={() => <ProfileContainer />} />
               <Route path="/Users" render={() => <UsersContainer />} />
             </div>
             <Sidebar />

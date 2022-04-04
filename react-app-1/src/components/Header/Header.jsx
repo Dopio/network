@@ -17,7 +17,7 @@ const Header = () => {
           <img src={Logo} className='image' alt='logo' />
         </div>
         <div className='header__menu_item'>
-          <Link to='/profile'>
+          <Link to='/Profile'>
             <div className={classes.header__menu_item_image}>
               <img src={users} alt='' />
             </div>

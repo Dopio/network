@@ -1,6 +1,6 @@
 import React from 'react';
 import ava from './../../../img/profile/ava.jpg';
-import classes from './Info.module.css';
+import classes from './ProfileInfo.module.css';
 
 
 const Info = () => {

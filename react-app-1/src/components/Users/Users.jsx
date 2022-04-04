@@ -1,6 +1,7 @@
 import React from "react";
 import classes from './Users.module.css';
 import avatar from '../.././img/Users/Anonymous_emblem.png';
+import {Link} from "react-router-dom";
 
 
 let Users = (props) => {
@@ -18,10 +19,12 @@ let Users = (props) => {
                 <div className={classes.users}>
                     <div className={classes.users__container}>
                         <div className={classes.avatar}>
-                            <img src={users.photos.small != null ? users.photos.small : avatar}
-                                className={classes.avatarImage}
-                                alt='avatar'
-                            />
+                            <Link to={'/Profile/' + users.id}>
+                                <img src={users.photos.small != null ? users.photos.small : avatar}
+                                    className={classes.avatarImage}
+                                    alt='avatar'
+                                />
+                            </Link>
                         </div>
                         <div className={classes.body}>
                             <div className={classes.userInfo}>
