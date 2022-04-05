@@ -1,20 +1,25 @@
 import React from 'react';
-import ava from './../../../img/profile/ava.jpg';
+import voidAva from '../../../img/Users/Anonymous_emblem.png';
+import Preloader from '../../common/preloader/Preloader';
 import classes from './ProfileInfo.module.css';
 
 
-const Info = () => {
+const ProfileInfo = (props) => {
+  if (!props.profile) {
+    return <Preloader />
+  }
+
+
   return (
     <div className={classes.profile__info}>
-        <div className="profile__header_ava">
-            <img src={ava} className={classes.profile__avatar} alt="" />
+        <div className={classes.profile__avatar}>
+            <img src={props.profile.photos.small != null ? props.profile.photos.small : voidAva} className={classes.avatar} alt="" />
         </div>
-        <div className="profile__header_about">Lemeshonok S.V.<br/><br/>
-            Date of birthday: 25.01.1998<br/>
-            City: St.Petersburg
+        <div className={classes.profile__header_about}>{props.profile.fullName}<br/><br/>
+            {props.profile.aboutMe}<br/>
         </div>
     </div>    
   );
 };
 
-export default Info
+export default ProfileInfo;
