@@ -1,4 +1,4 @@
-.users__container{
+.users__container {
     display: flex;
     margin-bottom: 20px;
 }
@@ -31,19 +31,19 @@
     width: 100%;
 }
 
-.userName{
+.userName {
     margin-right: 20px;
 }
 
-.userLocation{
+.userLocation {
     display: flex;
 }
 
-.userCity{
+.userCity {
     margin-right: 10px;
 }
 
-.showMore{
+.showMore {
     display: flex;
     justify-content: center;
     margin-top: -10px;
@@ -81,6 +81,6 @@ ul li:active {
     background: rgba(108, 102, 102, 0.8);
 }
 
-.selectedPage{
+.selectedPage {
     background: rgba(108, 102, 102, 0.8);
 }

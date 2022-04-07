@@ -1,31 +1,34 @@
-.dialog__container{
+.dialog__container {
     display: flex;
 }
-.dialog__friends{
+
+.dialog__friends {
     display: flex;
     flex-direction: column;
     max-width: 250px;
     width: 100%;
     height: 100%;
 }
-.dialog__messages{
+
+.dialog__messages {
     display: flex;
     flex-direction: column;
     width: 100%;
     height: 100%;
 }
-.dialog__friends{
+
+.dialog__friends {
     display: flex;
     text-align: center;
     justify-content: center;
 }
 
-.dialog__messages{
+.dialog__messages {
     display: flex;
     text-align: center;
     justify-content: center;
 }
 
-.messages__textarea{
+.messages__textarea {
     margin-right: 5px;
 }

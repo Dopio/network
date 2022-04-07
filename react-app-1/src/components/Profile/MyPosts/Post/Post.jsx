@@ -4,13 +4,13 @@ import classes from './Post.module.css';
 
 const Post = (props) => {
     return (
-    <div className={classes.mySendPosts}>
-        <div className={classes.mySendPosts_post}>
-            <img src={ava} alt="" />
-            <div>{props.message}</div>
+        <div className={classes.mySendPosts}>
+            <div className={classes.mySendPosts_post}>
+                <img src={ava} alt="" />
+                <div>{props.message}</div>
+            </div>
         </div>
-    </div>
     );
-  }
-  
-  export default Post;
+}
+
+export default Post;

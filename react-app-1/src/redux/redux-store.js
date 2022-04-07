@@ -13,7 +13,7 @@ let rootReducer = combineReducers({
     usersPage: usersReducer,
 });
 
-const composeEnchancers = composeWithDevTools ({
+const composeEnchancers = composeWithDevTools({
     trace: true,
 })
 

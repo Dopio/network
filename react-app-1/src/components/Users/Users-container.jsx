@@ -15,7 +15,7 @@ class usersContainer extends React.Component {
                 this.props.toggleIsFetching(false)
                 this.props.setUsers(responce.data.items);
                 /* this.props.setTotalUsersCount(responce.data.totalCount); */
-        });
+            });
     };
 
     onPageChanged = (pageNumber) => {
@@ -25,13 +25,13 @@ class usersContainer extends React.Component {
             .then(responce => {
                 this.props.toggleIsFetching(false)
                 this.props.setUsers(responce.data.items);
-        });
+            });
     }
 
-    render () {
+    render() {
         return <>
             {this.props.isFetching ? <Preloader /> : null}
-                
+
             <Users
                 totalUsersCount={this.props.totalUsersCount}
                 pageSize={this.props.pageSize}
@@ -85,4 +85,4 @@ export default connect(mapStateToProps, {
     setCurrentPage,
     setTotalUsersCount,
     toggleIsFetching,
-    })(usersContainer); 
+})(usersContainer); 

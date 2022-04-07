@@ -1,7 +1,7 @@
 import React from "react";
 import classes from './Users.module.css';
 import avatar from '../.././img/Users/Anonymous_emblem.png';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 let Users = (props) => {
