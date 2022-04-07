@@ -6,10 +6,10 @@ import briefcase from './../../img/Header/briefcase.svg';
 import Vector from './../../img/Header/Vector.svg';
 import bell from './../../img/Header/bell.svg';
 import classes from './Header.module.css';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className={classes.Header}>
       <div className={classes.header__container}>
@@ -23,7 +23,7 @@ const Header = () => {
             </div>
             <div className={classes.header__menu_item_text}>profile</div>
           </Link>
-          </div>
+        </div>
         <div className={classes.header__menu}>
           <div className='header__menu_item'>
             <Link to='/Dialogs'>
@@ -58,6 +58,11 @@ const Header = () => {
         </div>
         <div className={classes.header__search}>
           <input className={classes.header__search_search} />
+        </div>
+        <div className={classes.login__container}>
+          <div className={classes.login__text}>
+            {props.isAuth ? props.login :<Link to='/login'>Login</Link>}
+          </div>
         </div>
       </div>
     </header>

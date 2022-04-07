@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header.jsx';
+import HeaderContainer from './components/Header/HeaderContainer.jsx';
 import ProfileContainer from './components/Profile/Profile-container.jsx';
 import Sidebar from './components/Sidebar/Sidebar.jsx';
 import UsersContainer from './components/Users/Users-container.jsx';
@@ -14,7 +14,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div className="wrapper">
-        <Header />
+        <HeaderContainer />
         <body className='body _container'>
           <div className='body__wrapper'>
             <div className='main__wrapper'>

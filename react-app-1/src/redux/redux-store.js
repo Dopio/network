@@ -4,6 +4,7 @@ import { messagesReducer } from './messages-reducer';
 import { sidebarReducer } from './sidebar-reducer';
 import { usersReducer } from './users-reduser'
 import { composeWithDevTools } from 'redux-devtools-extension';
+import {authReducer} from './auth-reduser';
 
 
 let rootReducer = combineReducers({
@@ -11,6 +12,7 @@ let rootReducer = combineReducers({
     messagesPage: messagesReducer,
     sidebar: sidebarReducer,
     usersPage: usersReducer,
+    auth: authReducer,
 });
 
 const composeEnchancers = composeWithDevTools({
