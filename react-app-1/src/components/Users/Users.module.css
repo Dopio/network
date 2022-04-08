@@ -25,6 +25,10 @@
     display: flex;
 }
 
+.userStatus {
+    margin-right: 60px;
+}
+
 .userConnect {
     display: flex;
     justify-content: space-between;

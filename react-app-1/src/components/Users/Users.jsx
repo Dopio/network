@@ -2,6 +2,7 @@ import React from "react";
 import classes from './Users.module.css';
 import avatar from '../.././img/Users/Anonymous_emblem.png';
 import { Link } from "react-router-dom";
+import * as axios from 'axios';
 
 
 let Users = (props) => {
@@ -49,8 +50,37 @@ let Users = (props) => {
                                 </div>
                                 <div className={classes.userFollow}>
                                     {users.followed
-                                        ? <button onClick={() => { props.unFollow(users.id) }}>Unfollow</button>
-                                        : <button onClick={() => { props.follow(users.id) }}>Follow</button>
+                                        ? <button onClick={() => {
+
+                                            axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${users.id}`,{
+                                                withCredentials: true,
+                                                headers: {
+                                                    'API-KEY': '4fd71fa5-e02d-4296-85e7-5b9643aecdf4'
+                                                },
+                                            })
+                                            .then(responce => {
+                                                if  (responce.data.resultCode === 0) {
+                                                    props.unFollow(users.id);
+                                                }
+                                            });
+
+                                            }}>Unfollow</button>
+                                        : <button onClick={() => {
+                                            
+
+                                            axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${users.id}`,{},{
+                                                withCredentials: true,
+                                                headers: {
+                                                    'API-KEY': '4fd71fa5-e02d-4296-85e7-5b9643aecdf4'
+                                                },
+                                            })
+                                            .then(responce => {
+                                                if  (responce.data.resultCode === 0) {
+                                                    props.follow(users.id);
+                                                }
+                                            });
+
+                                            }}>Follow</button>
                                     }
 
                                 </div>
@@ -60,9 +90,6 @@ let Users = (props) => {
                 </div>
             </div>)
         }
-        {/* <div className={classes.showMore}>
-        <button onClick={props.getUsers} className={classes.showMore__button}>Show more</button>
-    </div> */}
         <div>
             <ul className={classes.usersPageList}>
                 {pages.map(p => {
