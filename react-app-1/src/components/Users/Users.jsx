@@ -13,7 +13,7 @@ let Users = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
-
+    
     return <div>
         {
             props.users.map(users => <div key={users.id}>
@@ -79,15 +79,16 @@ let Users = (props) => {
         }
         <div>
             <ul className={classes.usersPageList}>
-                {pages.map(p => {
+                {pages.map(page => {
                     return (
-                        <li className={props.currentPage === p && classes.selectedPage}
-                            onClick={() => { props.onPageChanged(p) }}>{p}</li>
+                        <li key={page} className={props.currentPage === page ? classes.selectedPage : 'false'}
+                            onClick={() => { props.onPageChanged(page)}}>{page}</li>
                     )
                 })}
             </ul>
         </div>
     </div>
+    
 };
 
 export default Users;

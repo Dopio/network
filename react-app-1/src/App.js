@@ -15,7 +15,7 @@ const App = () => {
     <BrowserRouter>
       <div className="wrapper">
         <HeaderContainer />
-        <body className='body _container'>
+        <div className='body _container'>
           <div className='body__wrapper'>
             <div className='main__wrapper'>
               <Route path="/Dialogs" render={() => <DialogsContainer />} />
@@ -24,7 +24,7 @@ const App = () => {
             </div>
             <Sidebar />
           </div>
-        </body>
+        </div>
       </div>
     </BrowserRouter>
   );
