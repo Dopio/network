@@ -16,8 +16,10 @@ const usersAPI = {
     },
 
     unFollowAPI(usersId) {
-        return instance.delete(`follow/${usersId}`, {
-        }).then(response => response.data);
+        return (
+            
+        instance.delete(`follow/${usersId}`, {
+        }).then(response => response.data))
     },
 
     followAPI(usersId) {

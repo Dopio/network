@@ -2,7 +2,6 @@ import React from "react";
 import classes from './Users.module.css';
 import avatar from '../.././img/Users/Anonymous_emblem.png';
 import { Link } from "react-router-dom";
-import usersAPI from "../../api/usersApi";
 
 
 let Users = (props) => {
@@ -13,7 +12,7 @@ let Users = (props) => {
     for (let i = 1; i <= pagesCount; i++) {
         pages.push(i);
     }
-    
+
     return <div>
         {
             props.users.map(users => <div key={users.id}>
@@ -51,25 +50,12 @@ let Users = (props) => {
                                 <div className={classes.userFollow}>
                                     {users.followed
                                         ? <button onClick={() => {
-
-                                            usersAPI.unFollowAPI(users.id).then(responce => {
-                                                if  (responce.resultCode === 0) {
-                                                    props.unFollow(users.id);
-                                                }
-                                            });
-
-                                            }}>Unfollow</button>
+                                            props.unFollow(users.id)
+                                        }}>Unfollow</button>
                                         : <button onClick={() => {
-                                            
-                                            usersAPI.followAPI(users.id).then(responce => {
-                                                if  (responce.resultCode === 0) {
-                                                    props.follow(users.id);
-                                                }
-                                            });
-
-                                            }}>Follow</button>
+                                            props.follow(users.id)
+                                        }}>Follow</button>
                                     }
-
                                 </div>
                             </div>
                         </div>
@@ -82,13 +68,13 @@ let Users = (props) => {
                 {pages.map(page => {
                     return (
                         <li key={page} className={props.currentPage === page ? classes.selectedPage : 'false'}
-                            onClick={() => { props.onPageChanged(page)}}>{page}</li>
+                            onClick={() => { props.onPageChanged(page) }}>{page}</li>
                     )
                 })}
             </ul>
         </div>
     </div>
-    
+
 };
 
 export default Users;

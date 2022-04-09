@@ -1,10 +1,11 @@
-import { combineReducers, createStore } from 'redux';
+import { applyMiddleware, combineReducers, createStore } from 'redux';
 import { profileReducer } from './profile-reducer';
 import { messagesReducer } from './messages-reducer';
 import { sidebarReducer } from './sidebar-reducer';
 import { usersReducer } from './users-reduser'
 import { composeWithDevTools } from 'redux-devtools-extension';
-import {authReducer} from './auth-reduser';
+import { authReducer } from './auth-reduser';
+import thunkMiddleware from 'redux-thunk';
 
 
 let rootReducer = combineReducers({
@@ -19,7 +20,7 @@ const composeEnchancers = composeWithDevTools({
     trace: true,
 })
 
-const store = createStore(rootReducer, composeEnchancers());
+const store = createStore(rootReducer, composeEnchancers(applyMiddleware(thunkMiddleware)));
 
 window.store = store;
 
