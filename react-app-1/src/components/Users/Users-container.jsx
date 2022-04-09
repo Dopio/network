@@ -1,5 +1,5 @@
 import { follow, unFollow, setCurrentPage, setTotalUsersCount,
-    toggleFollowingProgress,  getUsers} from '../../redux/users-reduser';
+    toggleFollowingProgress,  getUsers} from '../../redux/users-reducer';
 import { connect } from 'react-redux';
 import React from 'react';
 import Users from './Users';
