@@ -61,12 +61,12 @@ const Header = (props) => {
         </div>
         <div className={classes.login__container}>
           <div className={classes.login__text}>
-            {props.isAuth ? props.login :<Link to='/login'>Login</Link>}
+            {props.isAuth ? props.login : <Link to='/login'>Login</Link>}
           </div>
         </div>
       </div>
     </header>
   );
-}
+};
 
-export default Header
+export default Header;
