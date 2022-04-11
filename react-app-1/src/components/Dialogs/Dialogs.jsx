@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 import classes from './Dialogs.module.css';
 import FriendDialoge from './Friends/Friends';
 import Message from './Message/Message';
@@ -23,6 +24,8 @@ const Dialogs = (props) => {
     };
 
     let newMessageElement = React.createRef();
+
+    if (props.isAuth === false) return <Redirect to={'/Login'} />;
 
     return (
         <div className={classes.dialog}>
