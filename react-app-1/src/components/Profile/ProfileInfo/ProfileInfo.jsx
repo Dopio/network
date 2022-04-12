@@ -13,9 +13,12 @@ const ProfileInfo = (props) => {
   return (
     <div className={classes.profile__info}>
       <div className={classes.profile__avatar}>
-        <img src={props.profile.photos.small != null ? props.profile.photos.small : voidAva} className={classes.avatar} alt="" />
+        <img src={props.profile.photos.small != null ? props.profile.photos.small : voidAva}
+          className={classes.avatar} alt="Ava"
+        />
       </div>
-      <div className={classes.profile__header_about}>{props.profile.fullName}<br /><br />
+      <div className={classes.profile__header_about}>
+        {props.profile.fullName}<br /><br />
         {props.profile.aboutMe}<br />
       </div>
     </div>

@@ -69,7 +69,7 @@ let Users = (props) => {
                 {pages.map(page => {
                     return (
                         <li key={page} className={props.currentPage === page ? classes.selectedPage : 'false'}
-                            onClick={() => { props.onPageChanged(page) }}>{page}</li>
+                            onClick={() => { props.onPageChanged(page)}}>{page}</li>
                     )
                 })}
             </ul>
