@@ -7,7 +7,7 @@ import UsersContainer from './components/Users/Users-container.jsx';
 import DialogsContainer from './components/Dialogs/Dialogs-container';
 import { Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
-import LoginContainer from './components/Login/Login-container';
+import LoginContainer from './components/LoginPage/Login/Login-container';
 
 
 const App = () => {

@@ -1,0 +1,14 @@
+.title {
+    line-height: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.body:not(:last-child){
+    margin-right: 10px;
+}

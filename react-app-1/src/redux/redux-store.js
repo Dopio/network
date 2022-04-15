@@ -6,6 +6,7 @@ import { usersReducer } from './users-reducer'
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { authReducer } from './auth-reducer';
 import thunkMiddleware from 'redux-thunk';
+import { reducer as formReducer } from 'redux-form';
 
 
 let rootReducer = combineReducers({
@@ -14,11 +15,12 @@ let rootReducer = combineReducers({
     sidebar: sidebarReducer,
     usersPage: usersReducer,
     auth: authReducer,
+    form: formReducer,
 });
 
 const composeEnchancers = composeWithDevTools({
     trace: true,
-})
+});
 
 const store = createStore(rootReducer, composeEnchancers(applyMiddleware(thunkMiddleware)));
 

@@ -1,0 +1,10 @@
+.title {
+    line-height: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.body:not(:last-child){
+    margin-right: 10px;
+}
