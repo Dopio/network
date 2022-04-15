@@ -1,7 +1,9 @@
 import React from 'react';
+import { Field, reduxForm } from 'redux-form';
 import classes from './Dialogs.module.css';
 import FriendDialoge from './Friends/Friends';
 import Message from './Message/Message';
+/* import TextField from '@mui/material/TextField'; */
 
 
 const Dialogs = (props) => {
@@ -13,16 +15,9 @@ const Dialogs = (props) => {
         <Message message={mes.message} key={mes.id}
         />);
 
-    let onaddMessages = () => {
-        props.sendMessage();
+    let addNewMessage = (values) => {
+        props.sendMessage(values.newMessageBody);
     };
-
-    let onNewMessageChange = () => {
-        let text = newMessageElement.current.value;
-        props.onMessageChange(text);
-    };
-
-    let newMessageElement = React.createRef();
 
     return (
         <div className={classes.dialog}>
@@ -42,19 +37,23 @@ const Dialogs = (props) => {
                     <div className={classes.dialog__messages_list}>
                         {messagesElements}
                     </div>
-                    <div className={classes.messages__input}>
-                        <textarea
-                            onChange={onNewMessageChange}
-                            ref={newMessageElement}
-                            value={props.newMessageText}
-                            className={classes.messages__textarea}
-                        />
-                        <button onClick={onaddMessages} className={classes.messages__button}>Send</button>
-                    </div>
+                    <AddMessageFormRedux onSubmit={addNewMessage} />
                 </div>
             </div>
         </div>
     );
 };
+
+const addMessageForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit} className={classes.messages__input}>
+            {/* <TextField id="outlined-basic" name='newMessageBody' label="Enter your message" variant="outlined" /> */}
+            <Field component='textarea' name='newMessageBody' placeholder='Enter your message' />
+            <button className={classes.messages__button}>Send</button>
+        </form>
+    );
+};
+
+const AddMessageFormRedux = reduxForm({ form: 'dialogAddMessageForm' })(addMessageForm);
 
 export default Dialogs;

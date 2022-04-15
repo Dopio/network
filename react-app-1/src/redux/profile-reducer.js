@@ -1,7 +1,6 @@
 import profileAPI from "../api/ProfileApi";
 
 const SEND_POST = 'SEND-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
@@ -11,26 +10,16 @@ let initialState = {
         { id: '0', message: 'Hi, amogus', likesCount: 0 },
         { id: '1', message: 'Hardcoding', likesCount: 16 },
     ],
-    newPostText: '',
     profile: null,
     status: 'Hellow My Friend',
 };
 
 export const profileReducer = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_NEW_POST_TEXT: {
-            return {
-                ...state,
-                newPostText: action.newText,
-            }
-
-        }
-
         case SEND_POST: {
-            let newPost = state.newPostText;
+            let newPost = action.values;
             return {
                 ...state,
-                newPostText: '',
                 postsData: [...state.postsData, { id: 2, message: newPost, likesCount: 0 }],
             }
         }
@@ -54,8 +43,7 @@ export const profileReducer = (state = initialState, action) => {
     };
 };
 
-export const addPostActionCreator = () => ({ type: SEND_POST });
-export const onPostChangeActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text });
+export const addPostActionCreator = (values) => ({ type: SEND_POST, values });
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile });
 export const setStatus = (status) => ({ type: SET_STATUS, status });
 
@@ -75,6 +63,6 @@ export const updateStatusThunk = (status) => (dispatch) => {
     profileAPI.updateStatus(status).then(responce => {
         if (responce.data.ressultCode === 0) {
             dispatch(setStatus(status));
-        }
+        };
     });
 };
