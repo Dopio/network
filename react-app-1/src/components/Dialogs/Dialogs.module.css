@@ -29,6 +29,6 @@
     justify-content: center;
 }
 
-.messages__textarea {
-    margin-right: 5px;
+.writeMessage__textArea {
+    margin: 12px 0 5px 0;
 }

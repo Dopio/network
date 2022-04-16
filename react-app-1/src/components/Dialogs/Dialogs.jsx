@@ -1,10 +1,12 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import required, { maxLengthCreator } from '../../utils/validators/validator';
+import TextArea from '../common/FormsControls/FormsControls';
 import classes from './Dialogs.module.css';
 import FriendDialoge from './Friends/Friends';
 import Message from './Message/Message';
-/* import TextField from '@mui/material/TextField'; */
 
+const maxLenght = maxLengthCreator(5);
 
 const Dialogs = (props) => {
 
@@ -47,8 +49,14 @@ const Dialogs = (props) => {
 const addMessageForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit} className={classes.messages__input}>
-            {/* <TextField id="outlined-basic" name='newMessageBody' label="Enter your message" variant="outlined" /> */}
-            <Field component='textarea' name='newMessageBody' placeholder='Enter your message' />
+            <div className={classes.writeMessage__textArea}>
+                <Field
+                    component={TextArea}
+                    name='newMessageBody'
+                    validate={[required, maxLenght]}
+                    label="Write your post"
+                />
+            </div>
             <button className={classes.messages__button}>Send</button>
         </form>
     );
