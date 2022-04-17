@@ -1,11 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 import Login from './Login';
+import { login } from '../../../redux/auth-reducer'
 
 
 class LoginContainer extends React.Component {
     render() {
-        return <Login />
+        return <Login {...this.props} />
     }
 };
 
-export default LoginContainer;
+export default connect(null, { login })(LoginContainer);
