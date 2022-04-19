@@ -15,20 +15,25 @@ let LoginForm = (props) => {
                     <Field
                         component={TextArea}
                         validate={[required, maxLenght]}
-                        name="Login"
-                        label="Login"
+                        name="email"
+                        label="Email"
                     />
                 </div>
                 <div className={classes.password}>
                     <Field
                         component={TextArea}
                         validate={[required, maxLenght]}
-                        name="Password"
+                        name="password"
                         label="Password"
+                        type="password"
                     />
                 </div>
                 <div className={classes.remeberMe}>
-                    <Field component={'input'} name="RemeberMe" type="checkbox" />
+                    <Field
+                        component={'input'}
+                        name="remeberMe"
+                        type="checkbox"
+                    />
                     Remeber me
                 </div>
                 <button>Login</button>
