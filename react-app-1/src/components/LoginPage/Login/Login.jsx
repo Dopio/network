@@ -13,7 +13,7 @@ const Login = (props) => {
 
     if (props.isAuth) {
         return <Redirect to={'/Profile'} />
-    }
+    };
 
     return (
         <div className={classes.wrapper}>

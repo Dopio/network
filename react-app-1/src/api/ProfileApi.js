@@ -11,7 +11,7 @@ const instance = axios.create({
 
 const profileAPI = {
 
-    getStatus(userId = 2) {
+    getStatus(userId) {
         return instance.get(`profile/status/` + userId);
     },
 
@@ -20,7 +20,7 @@ const profileAPI = {
     },
 
 
-    getUserId(userId = 2) {
+    getUserId(userId) {
         return instance.get(`profile/${userId}`, {});
     },
 };

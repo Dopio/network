@@ -1,8 +1,8 @@
 import authAPI from "../api/auth";
+import { stopSubmit } from "redux-form";
 
 
 const SET_USER_DATA = 'SET_USER_DATA';
-
 
 let initialState = {
     userId: null,
@@ -29,24 +29,27 @@ export const setAuthUserData = (userId, login, email, isAuth) =>
     ({ type: SET_USER_DATA, payload: { userId, login, email, isAuth } })
 
 export const getAuthUserData = () => (dispatch) => {
-    
+
     authAPI.getMe().then(responce => {
         if (responce.data.resultCode === 0) {
-            let { userId, login, email } = responce.data.data;
-            dispatch(setAuthUserData(userId, login, email, true));
-        }
-        
+            let { id, login, email } = responce.data.data;
+            dispatch(setAuthUserData(id, login, email, true));
+        };
     });
 };
 
 export const login = (email, password, rememberMe) => (dispatch) => {
-    console.log(dispatch, email)
+
     authAPI.login(email, password, rememberMe)
         .then(responce => {
             console.log(responce)
             if (responce.data.resultCode === 0) {
                 dispatch(getAuthUserData())
             }
+            else {
+                let message = responce.data.messages.length > 0 ? responce.data.messages[0] : 'Some error';
+                dispatch(stopSubmit('login', { email: message, password: message }));
+            };
         });
 };
 
@@ -55,6 +58,6 @@ export const logout = () => (dispatch) => {
         .then(responce => {
             if (responce.resultCode === 0) {
                 dispatch(setAuthUserData(null, null, null, false));
-            }
+            };
         });
 };
