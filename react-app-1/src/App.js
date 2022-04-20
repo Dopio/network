@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import HeaderContainer from './components/Header/Header-container.jsx';
 import ProfileContainer from './components/Profile/Profile-container.jsx';
@@ -8,28 +8,45 @@ import DialogsContainer from './components/Dialogs/Dialogs-container';
 import { Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import LoginContainer from './components/LoginPage/Login/Login-container';
+import { connect } from 'react-redux';
+import { initializeAPP } from './redux/app-reducer';
+import Preloader from './components/common/preloader/Preloader';
 
 
-const App = () => {
+class App extends Component {
 
-  return (
-    <BrowserRouter>
-      <div className="wrapper">
-        <HeaderContainer />
-        <div className='body _container'>
-          <div className='body__wrapper'>
-            <div className='main__wrapper'>
-              <Route path="/Dialogs" render={() => <DialogsContainer />} />
-              <Route path="/Profile/:userId?" render={() => <ProfileContainer />} />
-              <Route path="/Users" render={() => <UsersContainer />} />
-              <Route path="/Login" render={() => <LoginContainer />} />
+  componentDidMount() {
+    this.props.initializeAPP(this.props.userID);
+  };
+
+  render() {
+
+    if (!this.props.initialized)
+      return <Preloader/>
+
+    return (
+      <BrowserRouter>
+        <div className="wrapper">
+          <HeaderContainer />
+          <div className='body _container'>
+            <div className='body__wrapper'>
+              <div className='main__wrapper'>
+                <Route path="/Dialogs" render={() => <DialogsContainer />} />
+                <Route path="/Profile/:userId?" render={() => <ProfileContainer />} />
+                <Route path="/Users" render={() => <UsersContainer />} />
+                <Route path="/Login" render={() => <LoginContainer />} />
+              </div>
+              <Sidebar />
             </div>
-            <Sidebar />
           </div>
         </div>
-      </div>
-    </BrowserRouter>
-  );
+      </BrowserRouter>
+    );
+  }
 };
 
-export default App;
+const mapStatetoProps = (state) => ({
+  initialized: state.app.initialized,
+})
+
+export default connect(mapStatetoProps, { initializeAPP })(App);

@@ -10,15 +10,13 @@ import { compose } from 'redux';
 class ProfileContainer extends React.Component {
 
   componentDidMount() {
-
-    /* if (this.props.isAuth) {
-      userId: this.props.authorizedUserId;
-    } */
     
     let userId = this.props.match.params.userId;
     if (!userId) {
       userId = this.props.authorizedUserId;
-      
+      if (!userId) {
+        this.props.history.push('./login')
+      };
     };
 
     this.props.getProfileThunk(userId);

@@ -67,7 +67,7 @@ const Header = (props) => {
                   {props.login}
                   <button
                     className={classes.logout__button}
-                    onClick={props.logout }>
+                    onClick={props.logout}>
                     Log out
                     
                   </button>
