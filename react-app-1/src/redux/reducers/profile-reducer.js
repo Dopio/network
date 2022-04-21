@@ -1,4 +1,4 @@
-import profileAPI from "../api/ProfileApi";
+import profileAPI from "../../api/ProfileApi";
 
 const SEND_POST = 'SEND-POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';

@@ -1,4 +1,4 @@
-import usersAPI from '../api/usersApi';
+import usersAPI from '../../api/usersApi';
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -95,13 +95,10 @@ export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isF
 export const toggleFollowingProgress = (isFetching) => ({ type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching });
 
 
-export const getUsers = (currentPage, pageSize) => {
-
+export const requestUsers = (currentPage, pageSize) => {
     return (dispatch) => {
-
         dispatch(toggleIsFetching(true));
-
-        usersAPI.getUsers(currentPage, pageSize).then(responce => {
+        usersAPI.requestUsers(currentPage, pageSize).then(responce => {
             dispatch(toggleIsFetching(false));
             dispatch(setUsers(responce.items));
             /* this.props.setTotalUsersCount(responce.data.totalCount); */
@@ -111,7 +108,6 @@ export const getUsers = (currentPage, pageSize) => {
 
 
 export const follow = (userID) => {
-
     return (dispatch) => {
         dispatch(toggleFollowingProgress(true, userID))
         usersAPI.followAPI(userID).then(responce => {

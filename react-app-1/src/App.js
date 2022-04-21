@@ -9,7 +9,7 @@ import { Route } from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 import LoginContainer from './components/LoginPage/Login/Login-container';
 import { connect } from 'react-redux';
-import { initializeAPP } from './redux/app-reducer';
+import { initializeAPP } from './redux/reducers/app-reducer';
 import Preloader from './components/common/preloader/Preloader';
 
 
