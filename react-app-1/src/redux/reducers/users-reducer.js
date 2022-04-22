@@ -103,7 +103,7 @@ export const requestUsers = (currentPage, pageSize) => {
             dispatch(setUsers(responce.items));
             /* this.props.setTotalUsersCount(responce.data.totalCount); */
         });
-    }
+    };
 };
 
 
@@ -113,10 +113,10 @@ export const follow = (userID) => {
         usersAPI.followAPI(userID).then(responce => {
             if (responce.resultCode === 0) {
                 dispatch(followSuccess(userID));
-            }
+            };
             dispatch(toggleFollowingProgress(false, userID))
         });
-    }
+    };
 };
 
 
@@ -125,7 +125,7 @@ export const unFollow = (userID) => (dispatch) => {
     usersAPI.unFollowAPI(userID).then(responce => {
         if (responce.resultCode === 0) {
             dispatch(unFollowSuccess(userID));
-        }
-        dispatch(toggleFollowingProgress(false, userID))
+        };
+        dispatch(toggleFollowingProgress(false, userID));
     });
 };
