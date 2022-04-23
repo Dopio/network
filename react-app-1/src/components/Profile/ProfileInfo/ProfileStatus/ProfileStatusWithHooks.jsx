@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from './ProfileStatus.module.css';
 
 const ProfileStatusWithHooks = (props) => {
@@ -10,6 +10,10 @@ const ProfileStatusWithHooks = (props) => {
     let [editMode, setEditMode] = useState(false);
     let [status, setStatus] = useState(props.status)
 
+    useEffect(() => {
+        setStatus(props.status);
+    }, [props.status]);
+
     const atcivateAdditMode = () => {
         setEditMode(true);
     };
@@ -17,6 +21,7 @@ const ProfileStatusWithHooks = (props) => {
     const deAtcivateAdditMode = () => {
         setEditMode(false);
         props.updateStatus(status);
+        debugger
     };
 
     const onStatusChange = (e) => {

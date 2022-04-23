@@ -2,7 +2,6 @@ import React from 'react';
 import voidAva from '../../../img/Users/Anonymous_emblem.png';
 import Preloader from '../../common/preloader/Preloader';
 import classes from './ProfileInfo.module.css';
-/* import ProfileStatus from './ProfileStatus/ProfileStatus'; */
 import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks';
 
 
@@ -10,7 +9,7 @@ const ProfileInfo = (props) => {
 
   if (!props.profile) {
     return <Preloader />
-  }
+  };
 
   return (
     <div className={classes.profile__info}>

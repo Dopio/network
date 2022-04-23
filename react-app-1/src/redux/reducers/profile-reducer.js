@@ -1,6 +1,6 @@
 import profileAPI from "../../api/ProfileApi";
 
-const SEND_POST = 'SEND-POST';
+const SEND_POST = 'SEND_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_STATUS = 'SET_STATUS';
 
@@ -61,7 +61,7 @@ export const getStatusThunk = (userId) => (dispatch) => {
 
 export const updateStatusThunk = (status) => (dispatch) => {
     profileAPI.updateStatus(status).then(responce => {
-        if (responce.data.ressultCode === 0) {
+        if (responce.data.resultCode === 0) {
             dispatch(setStatus(status));
         };
     });
