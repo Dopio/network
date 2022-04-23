@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
 import classes from './ProfileStatus.module.css';
 
-const ProfileStatusWithHooks = (props) => {
-
-    /* let stateWithSetState = useState(true);
-    let editMode = stateWithSetState[0];
-    let setEditMode = stateWithSetState[1]; */
+const ProfileStatusWithHooks = React.memo((props) => {
 
     let [editMode, setEditMode] = useState(false);
     let [status, setStatus] = useState(props.status)
@@ -21,7 +17,6 @@ const ProfileStatusWithHooks = (props) => {
     const deAtcivateAdditMode = () => {
         setEditMode(false);
         props.updateStatus(status);
-        debugger
     };
 
     const onStatusChange = (e) => {
@@ -48,6 +43,6 @@ const ProfileStatusWithHooks = (props) => {
             }
         </div>
     );
-};
+});
 
 export default ProfileStatusWithHooks;
