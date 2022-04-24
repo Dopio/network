@@ -55,14 +55,6 @@
     margin-top: -10px;
 }
 
-.usersPageList {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-left: -40px;
-    border-radius: 25px;
-}
-
 ul li {
     list-style: none;
     line-height: 30px;
@@ -84,9 +76,5 @@ ul li:hover {
 
 ul li:active {
     transition-duration: 300ms;
-    background: rgba(108, 102, 102, 0.8);
-}
-
-.selectedPage {
     background: rgba(108, 102, 102, 0.8);
 }

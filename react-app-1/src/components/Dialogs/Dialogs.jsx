@@ -1,7 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import required, { maxLengthCreator } from '../../utils/validators/validator';
-import TextArea from '../common/FormsControls/FormsControls';
+import {TextArea} from '../common/FormsControls/FormsControls';
 import classes from './Dialogs.module.css';
 import FriendDialoge from './Friends/Friends';
 import Message from './Message/Message';

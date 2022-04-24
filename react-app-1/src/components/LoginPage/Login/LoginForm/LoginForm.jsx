@@ -1,10 +1,10 @@
 import React from "react";
 import { Field } from "redux-form";
 import required, { maxLengthCreator } from "../../../../utils/validators/validator";
-import TextArea from "../../../common/FormsControls/FormsControls";
+import {TextArea} from "../../../common/FormsControls/FormsControls";
 import classes from './LoginForm.module.css';
 
-const maxLenght = maxLengthCreator(25);
+const maxLenght = maxLengthCreator(40);
 
 let LoginForm = React.memo(({handleSubmit}) => {
     return (
@@ -38,7 +38,7 @@ let LoginForm = React.memo(({handleSubmit}) => {
                 <button>Login</button>
             </div>
         </form>
-    )
+    );
 });
 
 export default LoginForm;
