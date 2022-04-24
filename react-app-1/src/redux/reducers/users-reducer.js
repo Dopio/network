@@ -101,20 +101,24 @@ export const requestUsers = (currentPage, pageSize) => async (dispatch) => {
     /* this.props.setTotalUsersCount(responce.data.totalCount); */
 };
 
-export const follow = (userID) => async (dispatch) => {
+
+const followUnfollowFlow = async (userID, dispatch, APImethod, actionCreator) => {
     dispatch(toggleFollowingProgress(true, userID))
-    let responce = await usersAPI.followAPI(userID)
+    let responce = await APImethod(userID)
     if (responce.resultCode === 0) {
-        dispatch(followSuccess(userID));
+        dispatch(actionCreator(userID));
     };
     dispatch(toggleFollowingProgress(false, userID));
+}
+
+export const follow = (userID) => async (dispatch) => {
+    let APImethod = usersAPI.followAPI.bind(usersAPI);
+    let actionCreator = followSuccess;
+    followUnfollowFlow(userID, dispatch, APImethod, actionCreator)
 };
 
 export const unFollow = (userID) => async (dispatch) => {
-    dispatch(toggleFollowingProgress(true, userID));
-    let responce = await usersAPI.unFollowAPI(userID)
-    if (responce.resultCode === 0) {
-        dispatch(unFollowSuccess(userID));
-    };
-    dispatch(toggleFollowingProgress(false, userID));
+    let APImethod = usersAPI.unFollowAPI.bind(usersAPI);
+    let actionCreator = unFollowSuccess;
+    followUnfollowFlow(userID, dispatch, APImethod, actionCreator)
 };
