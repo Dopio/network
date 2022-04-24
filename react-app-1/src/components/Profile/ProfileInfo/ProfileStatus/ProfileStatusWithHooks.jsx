@@ -23,6 +23,12 @@ const ProfileStatusWithHooks = React.memo((props) => {
         setStatus(e.currentTarget.value)
     };
 
+    const enterKey = event => {
+        if (event.key === 'Enter') {
+            deAtcivateAdditMode()
+        }
+    };
+
     return (
         <div className={classes.wrapper}>
             {!editMode &&
@@ -38,6 +44,7 @@ const ProfileStatusWithHooks = React.memo((props) => {
                         value={status}
                         autoFocus
                         onBlur={deAtcivateAdditMode}
+                        onKeyDown={enterKey}
                     />
                 </div>
             }

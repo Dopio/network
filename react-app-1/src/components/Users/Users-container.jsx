@@ -24,7 +24,7 @@ class usersContainer extends React.Component {
     onPageChanged = (pageNumber) => {
         this.props.requestUsers(pageNumber, this.props.pageSize);
         this.props.setCurrentPage(pageNumber)
-    }
+    };
 
 
     render() {
@@ -42,18 +42,8 @@ class usersContainer extends React.Component {
                 follow={this.props.follow}
             />
         </>
-    }
+    };
 };
-
-/* const mapStateToProps = (state) => {
-    return {
-        users: state.usersPage.users,
-        pageSize: state.usersPage.pageSize,
-        totalUsersCount: state.usersPage.totalUsersCount,
-        currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching,
-    }
-}; */
 
 const mapStateToProps = (state) => {
     return {
