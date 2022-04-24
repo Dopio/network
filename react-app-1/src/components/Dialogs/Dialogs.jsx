@@ -8,17 +8,17 @@ import Message from './Message/Message';
 
 const maxLenght = maxLengthCreator(5);
 
-const Dialogs = (props) => {
+const Dialogs = React.memo(({dialogsData, messagesData, sendMessage}) => {
 
-    let friendsElements = props.dialogsData.map(dialog =>
+    let friendsElements = dialogsData.map(dialog =>
         <FriendDialoge name={dialog.name} key={dialog.id} id={dialog.id}
         />);
-    let messagesElements = props.messagesData.map(mes =>
+    let messagesElements = messagesData.map(mes =>
         <Message message={mes.message} key={mes.id}
         />);
 
     let addNewMessage = (values) => {
-        props.sendMessage(values.newMessageBody);
+        sendMessage(values.newMessageBody);
     };
 
     return (
@@ -44,11 +44,11 @@ const Dialogs = (props) => {
             </div>
         </div>
     );
-};
+});
 
-const addMessageForm = (props) => {
+const addMessageForm = (handleSubmit) => {
     return (
-        <form onSubmit={props.handleSubmit} className={classes.messages__input}>
+        <form onSubmit={handleSubmit} className={classes.messages__input}>
             <div className={classes.writeMessage__textArea}>
                 <Field
                     component={TextArea}

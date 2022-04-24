@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 import classes from './Friends.module.css';
 
 
-const FriendDialoge = (props) => {
-    let path = "/dialogs/" + props.id;
+const FriendDialoge = ({id, name}) => {
+    let path = "/dialogs/" + id;
 
     return (
         <div className={classes.friend}>
-            <Link to={path}>{props.name}</Link>
+            <Link to={path}>{name}</Link>
         </div>
     );
 };

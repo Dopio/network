@@ -2,10 +2,10 @@ import React from 'react';
 import classes from './UserName.module.css';
 
 
-const User = (props) => {
+const User = React.memo((name) => {
     return (
-        <div className={classes.userName}>{props.name}</div>
+        <div className={classes.userName}>{name}</div>
     )
-};
+});
 
 export default User;

@@ -7,12 +7,12 @@ import TextArea from '../../common/FormsControls/FormsControls';
 
 const maxLenght = maxLengthCreator(10);
 
-const MyPosts = (props) => {
+const MyPosts = React.memo(({postsData, addPosts}) => {
 
-    let postsElements = props.postsData.map(po => <Post message={po.message} key={po.id} />);
+    let postsElements = postsData.map(po => <Post message={po.message} key={po.id} />);
 
     let addNewPost = (values) => {
-        props.addPosts(values.newPostBody)
+        addPosts(values.newPostBody)
     };
 
     return (
@@ -22,11 +22,11 @@ const MyPosts = (props) => {
             {postsElements}
         </div>
     );
-};
+});
 
-const addPostForm = (props) => {
+const addPostForm = React.memo(({handleSubmit}) => {
     return (
-        <form onSubmit={props.handleSubmit} className={classes.writePost__container}>
+        <form onSubmit={handleSubmit} className={classes.writePost__container}>
             <div className={classes.writePost__textArea}>
                 <Field
                     component={TextArea}
@@ -38,7 +38,7 @@ const addPostForm = (props) => {
             <button className={classes.writePost_button}>Send</button>
         </form>
     );
-};
+});
 
 const AddPostFormRedux = reduxForm({ form: 'profileAddPostForm' })(addPostForm);
 

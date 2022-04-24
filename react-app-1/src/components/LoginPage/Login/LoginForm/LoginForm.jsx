@@ -6,10 +6,9 @@ import classes from './LoginForm.module.css';
 
 const maxLenght = maxLengthCreator(25);
 
-let LoginForm = (props) => {
-
+let LoginForm = React.memo(({handleSubmit}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div className={classes.body}>
                 <div className={classes.login}>
                     <Field
@@ -40,6 +39,6 @@ let LoginForm = (props) => {
             </div>
         </form>
     )
-};
+});
 
 export default LoginForm;

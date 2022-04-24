@@ -4,9 +4,9 @@ import avatar from '../.././img/Users/Anonymous_emblem.png';
 import { Link } from "react-router-dom";
 
 
-let Users = (props) => {
+let Users = React.memo(({ totalUsersCount, pageSize, users, follow, unFollow, currentPage, onPageChanged }) => {
 
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
+    let pagesCount = Math.ceil(totalUsersCount / pageSize);
 
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
@@ -16,7 +16,7 @@ let Users = (props) => {
 
     return <div>
         {
-            props.users.map(users => <div key={users.id}>
+            users.map(users => <div key={users.id}>
                 <div className={classes.users}>
                     <div className={classes.users__container}>
                         <div className={classes.avatar}>
@@ -51,10 +51,10 @@ let Users = (props) => {
                                 <div className={classes.userFollow}>
                                     {users.followed
                                         ? <button onClick={() => {
-                                            props.unFollow(users.id)
+                                            unFollow(users.id)
                                         }}>Unfollow</button>
                                         : <button onClick={() => {
-                                            props.follow(users.id)
+                                            follow(users.id)
                                         }}>Follow</button>
                                     }
                                 </div>
@@ -68,14 +68,15 @@ let Users = (props) => {
             <ul className={classes.usersPageList}>
                 {pages.map(page => {
                     return (
-                        <li key={page} className={props.currentPage === page ? classes.selectedPage : 'false'}
-                            onClick={() => { props.onPageChanged(page)}}>{page}</li>
-                    )
+                        <li key={page} className={currentPage === page
+                            ? classes.selectedPage : 'false'}
+                            onClick={() => { onPageChanged(page) }}>{page}
+                        </li>
+                    );
                 })}
             </ul>
         </div>
     </div>
-
-};
+});
 
 export default Users;

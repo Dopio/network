@@ -10,7 +10,8 @@ import { Link } from "react-router-dom";
 
 
 
-const Header = (props) => {
+const Header = React.memo(({isAuth, login, logout}) => {
+  
   return (
     <header className={classes.Header}>
       <div className={classes.header__container}>
@@ -62,17 +63,15 @@ const Header = (props) => {
         </div>
         <div className={classes.login__container}>
           <div className={classes.login__text}>
-            {props.isAuth
+            {isAuth
               ? <div>
-                  {props.login}
+                  {login}
                   <button
                     className={classes.logout__button}
-                    onClick={props.logout}>
+                    onClick={logout}>
                     Log out
-                    
                   </button>
                 </div> 
-                
               : <Link to='/login'>Login</Link>
             }
           </div>
@@ -80,6 +79,6 @@ const Header = (props) => {
       </div>
     </header>
   );
-};
+});
 
 export default Header;

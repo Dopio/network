@@ -5,13 +5,13 @@ import LoginForm from "./LoginForm/LoginForm";
 import { Redirect } from "react-router-dom";
 
 
-const Login = (props) => {
+const Login = React.memo(({login, isAuth}) => {
 
     const onSubmit = (formData) => {
-        props.login(formData.email, formData.password, formData.rememberMe);
+        login(formData.email, formData.password, formData.rememberMe);
     };
 
-    if (props.isAuth) {
+    if (isAuth) {
         return <Redirect to={'/Profile'} />
     };
 
@@ -23,7 +23,7 @@ const Login = (props) => {
             <LoginReduxForm onSubmit={onSubmit} />
         </div>
     );
-};
+});
 
 const LoginReduxForm = reduxForm({
     form: 'login'
