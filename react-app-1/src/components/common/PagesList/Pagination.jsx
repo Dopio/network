@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from './Pagination.module.css';
 
 
-const PagesList = React.memo(({totalUsersCount, pageSize, currentPage, onPageChanged}) => {
+const PagesList = React.memo(({ totalUsersCount, pageSize, currentPage, onPageChanged, portionSize = 10 }) => {
 
     let pagesCount = Math.ceil(totalUsersCount / pageSize);
 
@@ -11,17 +11,43 @@ const PagesList = React.memo(({totalUsersCount, pageSize, currentPage, onPageCha
         pages.push(i);
     };
 
+    let portionCount = Math.ceil(pagesCount / portionSize);
+    let [portionNumber, setPortionNumber] = useState(1);
+    let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
+    let rightPortionPageNumber = portionNumber * portionSize;
+
     return (
-        <ul className={classes.usersPageList}>
-            {pages.map(page => {
-                return (
-                    <li key={page} className={currentPage === page
-                        ? classes.selectedPage : 'false'}
-                        onClick={() => { onPageChanged(page) }}>{page}
-                    </li>
-                );
-            })}
-        </ul>
+        <div className={classes.pageList__wrapper}>
+            {
+                portionNumber > 1 &&
+                <button
+                    className={classes.pageList__button}
+                    onClick={() => setPortionNumber(portionNumber - 1)}>
+                    PREV
+                </button>
+            }
+            <ul className={classes.usersPageList}>
+                {pages.filter(pages => pages >= leftPortionPageNumber && pages <= rightPortionPageNumber)
+                    .map(page => {
+                        return (
+                            <li key={page} className={currentPage === page
+                                ? classes.selectedPage : 'false'}
+                                onClick={() => { onPageChanged(page) }}>{page}
+                            </li>
+                        );
+                    })}
+            </ul>
+            {
+                portionCount > portionNumber &&
+                <div className={classes.pageList__button_wrapper}>
+                    <button
+                        className={classes.pageList__button}
+                        onClick={() => setPortionNumber(portionNumber + 1)}>
+                        NEXT
+                    </button>
+                </div>
+            }
+        </div>
     );
 });
 

@@ -1,11 +1,29 @@
+.pageList__wrapper{
+    display: flex;
+    justify-content: center;
+}
+
 .usersPageList {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-left: -40px;
+/*     margin-left: -40px; */
     border-radius: 25px;
 }
 
 .selectedPage {
     background: rgba(108, 102, 102, 0.8);
+}
+
+.pageList__wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.pageList__button{
+    max-height: 20px;
+    display: block;
+    margin-top: 26px;
+    margin-left: 30px;
 }
