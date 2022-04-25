@@ -3,18 +3,10 @@ import classes from './Users.module.css';
 import avatar from '../.././img/Users/Anonymous_emblem.png';
 import { Link } from "react-router-dom";
 import { FollowBtn, UnfollowBtn } from "../common/FormsControls/FormsControls";
-import PagesList from "../common/PagesList/PagesList";
+import PagesList from "../common/PagesList/Pagination";
 
 
 let Users = React.memo(({ totalUsersCount, pageSize, users, follow, unFollow, currentPage, onPageChanged }) => {
-
-    let pagesCount = Math.ceil(totalUsersCount / pageSize);
-
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-    };
-
     return <div>
         {
             users.map(users => <div key={users.id}>
@@ -68,7 +60,12 @@ let Users = React.memo(({ totalUsersCount, pageSize, users, follow, unFollow, cu
             </div>)
         }
         <div>
-            <PagesList pages={pages} currentPage={currentPage} onPageChanged={onPageChanged}/>
+            <PagesList
+                totalUsersCount={totalUsersCount}
+                pageSize={pageSize}
+                currentPage={currentPage}
+                onPageChanged={onPageChanged}
+            />
         </div>
     </div>
 });

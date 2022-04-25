@@ -1,8 +1,16 @@
 import React from "react";
-import classes from './PagesList.module.css';
+import classes from './Pagination.module.css';
 
 
-const PagesList = React.memo(({pages, currentPage, onPageChanged}) => {
+const PagesList = React.memo(({totalUsersCount, pageSize, currentPage, onPageChanged}) => {
+
+    let pagesCount = Math.ceil(totalUsersCount / pageSize);
+
+    let pages = [];
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push(i);
+    };
+
     return (
         <ul className={classes.usersPageList}>
             {pages.map(page => {

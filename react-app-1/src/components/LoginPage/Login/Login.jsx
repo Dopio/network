@@ -5,7 +5,7 @@ import LoginForm from "./LoginForm/LoginForm";
 import { Redirect } from "react-router-dom";
 
 
-const Login = React.memo(({login, isAuth}) => {
+const Login = React.memo(({ login, isAuth }) => {
 
     const onSubmit = (formData) => {
         login(formData.email, formData.password, formData.rememberMe);
@@ -20,7 +20,22 @@ const Login = React.memo(({login, isAuth}) => {
             <div className={classes.title}>
                 Login
             </div>
-            <LoginReduxForm onSubmit={onSubmit} />
+            <div className={classes.body__wrapper}>
+                <LoginReduxForm onSubmit={onSubmit} />
+                <div className={classes.test__wrapper}>
+                    <div className={classes.test__title}>
+                        Email и Password  for testing
+                    </div>
+                    <div className={classes.text__body}>
+                        <div className={classes.text__email}>
+                            <span className={classes.bold}>Email:</span> free@samuraijs.com
+                        </div>
+                        <div className={classes.text__password}>
+                            <span className={classes.bold}>Password:</span> free
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 });

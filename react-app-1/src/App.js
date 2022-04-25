@@ -42,11 +42,11 @@ class App extends Component {
         </div>
       </BrowserRouter>
     );
-  }
+  };
 };
 
 const mapStatetoProps = (state) => ({
   initialized: state.app.initialized,
-})
+});
 
 export default connect(mapStatetoProps, { initializeAPP })(App);
