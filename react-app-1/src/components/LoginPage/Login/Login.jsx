@@ -28,10 +28,10 @@ const Login = React.memo(({ login, isAuth }) => {
                     </div>
                     <div className={classes.text__body}>
                         <div className={classes.text__email}>
-                            <span className={classes.bold}>Email:</span> tester1990@internet.ru
+                            <span className={classes.bold}>Email:</span> stas.lemeshonok98@mail.ru
                         </div>
                         <div className={classes.text__password}>
-                            <span className={classes.bold}>Password:</span> testpass
+                            <span className={classes.bold}>Password:</span> dgesika007
                         </div>
                     </div>
                 </div>
