@@ -12,7 +12,7 @@ const MyPosts = React.memo(({postsData, addPosts}) => {
     let postsElements = postsData.map(po => <Post message={po.message} key={po.id} />);
 
     let addNewPost = (values) => {
-        addPosts(values.newPostBody)
+        addPosts(values.newPostBody);
     };
 
     return (

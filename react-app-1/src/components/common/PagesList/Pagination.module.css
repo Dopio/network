@@ -7,7 +7,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-/*     margin-left: -40px; */
+    margin-left: -30px;
     border-radius: 25px;
 }
 
@@ -25,5 +25,5 @@
     max-height: 20px;
     display: block;
     margin-top: 26px;
-    margin-left: 30px;
+    margin-left: 10px;
 }

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import required, { maxLengthCreator } from '../../utils/validators/validator';
-import {TextArea} from '../common/FormsControls/FormsControls';
+import { TextArea } from '../common/FormsControls/FormsControls';
 import classes from './Dialogs.module.css';
 import FriendDialoge from './Friends/Friends';
 import Message from './Message/Message';
 
 const maxLenght = maxLengthCreator(5);
 
-const Dialogs = React.memo(({dialogsData, messagesData, sendMessage}) => {
+const Dialogs = React.memo(({ dialogsData, messagesData, sendMessage }) => {
 
     let friendsElements = dialogsData.map(dialog =>
         <FriendDialoge name={dialog.name} key={dialog.id} id={dialog.id}
@@ -46,7 +46,7 @@ const Dialogs = React.memo(({dialogsData, messagesData, sendMessage}) => {
     );
 });
 
-const addMessageForm = (handleSubmit) => {
+const addMessageForm = React.memo(({handleSubmit}) => {
     return (
         <form onSubmit={handleSubmit} className={classes.messages__input}>
             <div className={classes.writeMessage__textArea}>
@@ -60,7 +60,7 @@ const addMessageForm = (handleSubmit) => {
             <button className={classes.messages__button}>Send</button>
         </form>
     );
-};
+});
 
 const AddMessageFormRedux = reduxForm({ form: 'dialogAddMessageForm' })(addMessageForm);
 
