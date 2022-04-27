@@ -8,8 +8,8 @@ const DELETE_POST = 'profile/DELETE_POST';
 
 let initialState = {
     postsData: [
-        { id: '0', message: 'Hi, amogus', likesCount: 0 },
-        { id: '1', message: 'Hardcoding', likesCount: 16 },
+        { id: '0', message: 'Hi, all!', likesCount: 0 },
+        { id: '1', message: 'U can Write new Post ;D', likesCount: 16 },
     ],
     profile: null,
     status: 'Hellow My Friend',
