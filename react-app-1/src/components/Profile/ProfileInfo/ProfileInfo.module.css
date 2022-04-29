@@ -11,3 +11,13 @@
 .profile__avatar {
     margin-right: 10px;
 }
+
+.ownersAvatar__wrapper{
+    display: flex;
+    flex-direction: column;
+}
+
+.ownersAvatar{
+    max-width: 150px;
+    width: 100%;
+}

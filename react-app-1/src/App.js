@@ -3,8 +3,7 @@ import './App.css';
 import HeaderContainer from './components/Header/Header-container.jsx';
 import ProfileContainer from './components/Profile/Profile-container.jsx';
 import Sidebar from './components/Sidebar/Sidebar.jsx';
-import { Route } from "react-router-dom";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter, Route } from "react-router-dom";
 import LoginContainer from './components/LoginPage/Login/Login-container';
 import { connect } from 'react-redux';
 import { initializeAPP } from './redux/reducers/app-reducer';
@@ -26,7 +25,7 @@ class App extends Component {
       return <Preloader />
 
     return (
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
+      <HashRouter basename={process.env.PUBLIC_URL}>
         <div className="wrapper">
           <HeaderContainer />
           <div className='body _container'>
@@ -53,7 +52,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   };
 };

@@ -5,22 +5,33 @@ import classes from './ProfileInfo.module.css';
 import ProfileStatusWithHooks from './ProfileStatus/ProfileStatusWithHooks';
 
 
-const ProfileInfo = (props) => {
+const ProfileInfo = ({ isOwner, profile, status, updateStatus, savePhoto }) => {
 
-  if (!props.profile) {
+  if (!profile) {
     return <Preloader />
+  };
+
+  const onMaimPhotoSelected = (e) => {
+    if (e.target.files.length) {
+      savePhoto(e.target.files[0])
+    }
   };
 
   return (
     <div className={classes.profile__info}>
       <div className={classes.profile__avatar}>
-        <img src={props.profile?.photos.small != null ? props.profile.photos.small : voidAva}
-          className={classes.avatar} alt="Ava"
-        />
+        {isOwner ?
+          <div className={classes.ownersAvatar__wrapper}>
+            <img className={classes.ownersAvatar} src={profile.photos.small} />
+            <input type={'file'} onChange={onMaimPhotoSelected} />
+          </div> :
+          <img src={profile.photos.small !== null ? profile.photos.small : voidAva}
+            className={classes.avatar} alt="Ava"
+          />}
       </div>
       <div className={classes.profile__header_about}>
-        {props.profile?.fullName}<br /><br />
-        <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/><br />
+        {profile?.fullName}<br /><br />
+        <ProfileStatusWithHooks status={status} updateStatus={updateStatus} /><br />
       </div>
     </div>
   );
