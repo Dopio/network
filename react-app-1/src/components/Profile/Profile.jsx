@@ -4,7 +4,7 @@ import MyPostsContainer from './MyPosts/MyPosts-container';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
-const Profile = React.memo(({ profile, status, updateStatus, isOwner, savePhoto }) => {
+const Profile = React.memo(({ profile, status, updateStatus, isOwner, savePhoto, saveProfile }) => {
   return (
     <div className={classes.profile}>
       <div className={classes.profile__container}>
@@ -14,6 +14,7 @@ const Profile = React.memo(({ profile, status, updateStatus, isOwner, savePhoto 
           status={status}
           updateStatus={updateStatus}
           savePhoto={savePhoto}
+          saveProfile={saveProfile}
         />
         <MyPostsContainer />
       </div>

@@ -1,7 +1,11 @@
 import React from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import { getProfileThunk, getStatusThunk, updateStatusThunk, savePhotoThunk } from '../../redux/reducers/profile-reducer';
+import {
+  getProfileThunk, getStatusThunk,
+  updateStatusThunk, savePhotoThunk,
+  saveProfileThunk
+} from '../../redux/reducers/profile-reducer';
 import { withRouter } from 'react-router-dom';
 import { withAuthRedirect } from '../../hoc/withAuthRedirect';
 import { compose } from 'redux';
@@ -41,6 +45,7 @@ class ProfileContainer extends React.Component {
         status={this.props.status}
         updateStatus={this.props.updateStatusThunk}
         savePhoto={this.props.savePhotoThunk}
+        saveProfile={this.props.saveProfileThunk}
       />
     );
   };
@@ -54,7 +59,7 @@ let mapStateToProps = (state) => ({
 });
 
 export default compose(
-  connect(mapStateToProps, { getProfileThunk, getStatusThunk, updateStatusThunk, savePhotoThunk }),
+  connect(mapStateToProps, { getProfileThunk, getStatusThunk, updateStatusThunk, savePhotoThunk, saveProfileThunk }),
   withRouter,
   withAuthRedirect,
 )(ProfileContainer);

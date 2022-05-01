@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import classes from './ProfileStatus.module.css';
 
-const ProfileStatusWithHooks = React.memo((props) => {
+const ProfileStatusWithHooks = React.memo(({statusFromProps, updateStatus}) => {
 
     let [editMode, setEditMode] = useState(false);
-    let [status, setStatus] = useState(props.status)
+    let [status, setStatus] = useState(statusFromProps)
 
     useEffect(() => {
-        setStatus(props.status);
-    }, [props.status]);
+        setStatus(statusFromProps);
+    }, [statusFromProps]);
 
     const atcivateAdditMode = () => {
         setEditMode(true);
@@ -16,7 +16,7 @@ const ProfileStatusWithHooks = React.memo((props) => {
 
     const deAtcivateAdditMode = () => {
         setEditMode(false);
-        props.updateStatus(status);
+        updateStatus(status);
     };
 
     const onStatusChange = (e) => {
@@ -33,7 +33,7 @@ const ProfileStatusWithHooks = React.memo((props) => {
         <div className={classes.wrapper}>
             {!editMode &&
                 <div className={classes.status__text}>
-                    <span onDoubleClick={atcivateAdditMode}>{props.status || 'Some status'}</span>
+                    <span onDoubleClick={atcivateAdditMode}>{statusFromProps || 'Some status'}</span>
                 </div>
             }
             {editMode &&

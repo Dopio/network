@@ -3,6 +3,7 @@ import TextField from '@mui/material/TextField';
 import classes from './FormsControls.module.css'
 import styled from "@emotion/styled";
 import Button from '@mui/material/Button';
+import TextareaAutosize from '@mui/material/TextareaAutosize';
 
 
 const CssTextField = styled(TextField)({
@@ -30,7 +31,8 @@ export const TextArea = ({ input, meta, ...props }) => {
                 id="outlined-basic"
                 variant="outlined"
                 size="small"
-                {...input} {...props}
+                {...input}
+                {...props}
             />
         </div>
         {hasError !== 'error message' && <div className={classes.errorMessage}>{meta.error}</div>}
@@ -38,6 +40,19 @@ export const TextArea = ({ input, meta, ...props }) => {
     );
 };
 
+export const MinHeightTextarea = ({input, ...props}) => {
+    return (
+        <div>
+            <TextareaAutosize
+                aria-label="minimum height"
+                minRows={4}
+                style={{ width: 350 }}
+                {...props}
+                {...input}
+            />
+        </div>
+    );
+};
 
 export const UnfollowBtn = ({ unFollow, users }) => {
     return (

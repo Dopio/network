@@ -29,7 +29,7 @@ export const profileReducer = (state = initialState, action) => {
         case SET_USER_PROFILE: {
             return {
                 ...state,
-                profile: action.profile,
+                profile: action.profile
             }
         }
 
@@ -83,9 +83,16 @@ export const updateStatusThunk = (status) => async (dispatch) => {
 };
 
 export const savePhotoThunk = (file) => async (dispatch) => {
-    
     let responce = await profileAPI.savePhoto(file)
     if (responce.data.resultCode === 0) {
         dispatch(savePhotoSuccsess(responce.data.data.photos))
+    };
+};
+
+export const saveProfileThunk = (profile) => async (dispatch, getState) => {
+    const userId = getState().auth.userId;
+    const responce = await profileAPI.saveProfile(profile)
+    if (responce.data.resultCode === 0) {
+        dispatch(getProfileThunk(userId))
     };
 };
