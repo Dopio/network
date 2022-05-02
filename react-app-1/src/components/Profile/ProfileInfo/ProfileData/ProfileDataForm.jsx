@@ -7,7 +7,7 @@ import classes from './ProfileData.module.css';
 
 const maxLenght = maxLengthCreator(40);
 
-const ProfileDataForm = ({ goToVieMode, handleSubmit }) => {
+const ProfileDataForm = React.memo(({ profile, handleSubmit }) => {
   return <form onSubmit={handleSubmit}>
     <Field
       component={TextArea}
@@ -43,7 +43,7 @@ const ProfileDataForm = ({ goToVieMode, handleSubmit }) => {
         <Field
           name="aboutMe"
           placeholder="Who are you?"
-          component={MinHeightTextarea}
+          component={TextArea}
         />
       </div>
     </div>
@@ -51,17 +51,25 @@ const ProfileDataForm = ({ goToVieMode, handleSubmit }) => {
       <div className={classes.contacts__title}>
         Contacts:
       </div>
-      {/* <div className={classes.contacts__body}>
+      <div className={classes.contacts__body}>
         {Object.keys(profile.contacts).map(key => {
-          return <Contacts contactTitle={key} contactValue={profile.contacts[key]} />
+          return (
+            <div className={classes.contacts} key={key}>
+              {key}: <Field
+                name={'contacts.' + key}
+                placeholder={key}
+                component={TextArea}
+              />
+            </div>
+          )
         })}
-      </div> */}
+      </div>
     </div>
     <div>
       <button onClick={() => { }}>Save and Close</button>
     </div>
   </form>
-};
+});
 
 const ProfileDataFormReduxForm = reduxForm({
   form: 'edit_profile'

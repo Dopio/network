@@ -1,3 +1,4 @@
+import { stopSubmit } from "redux-form";
 import profileAPI from "../../api/ProfileApi";
 
 const SEND_POST = 'profile/SEND_POST';
@@ -50,7 +51,7 @@ export const profileReducer = (state = initialState, action) => {
         case SAVE_PHOTO_SUCCSESS: {
             return {
                 ...state,
-                profile: {...state.profile, photos: action.photos}
+                profile: { ...state.profile, photos: action.photos }
             }
         }
 
@@ -94,5 +95,20 @@ export const saveProfileThunk = (profile) => async (dispatch, getState) => {
     const responce = await profileAPI.saveProfile(profile)
     if (responce.data.resultCode === 0) {
         dispatch(getProfileThunk(userId))
-    };
+    } else {
+        let errorMessage = responce.data.messages[0];
+
+        Object.keys(profile.contacts).map(title => {
+            let a = errorMessage.indexOf(title);
+            console.log(a)
+            return a;
+        })
+        
+        
+
+
+        let message = responce.data.messages.length > 0 ? responce.data.messages[0] : 'Some error';
+        dispatch(stopSubmit('edit_profile', { contact: message }));
+    }
 };
+

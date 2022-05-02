@@ -6,6 +6,7 @@ import classes from './ProfileData.module.css';
 const ProfileData = ({ profile, updateStatus, status, isOwner, goToEditMode }) => {
     return <div className={classes.profile__data}>
       {profile?.fullName}<br /><br />
+      Status:
       <ProfileStatusWithHooks statusFromProps={status} updateStatus={updateStatus} />
       <div>
         Looking for a job: {profile.lookingForAJob ? 'yes' : 'no'}
@@ -30,8 +31,10 @@ const ProfileData = ({ profile, updateStatus, status, isOwner, goToEditMode }) =
           Contacts:
         </div>
         <div className={classes.contacts__body}>
-          {Object.keys(profile.contacts).map(key => {
-            return <Contacts contactTitle={key} contactValue={profile.contacts[key]} />
+          {Object.keys(profile.contacts).map(title => {
+            if (profile.contacts[title] !== null || "") {
+              return <Contacts key={title} contactTitle={title} contactValue={profile.contacts[title]} />
+            }
           })}
         </div>
       </div>

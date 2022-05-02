@@ -31,6 +31,7 @@ const ProfileStatusWithHooks = React.memo(({statusFromProps, updateStatus}) => {
 
     return (
         <div className={classes.wrapper}>
+            
             {!editMode &&
                 <div className={classes.status__text}>
                     <span onDoubleClick={atcivateAdditMode}>{statusFromProps || 'Some status'}</span>

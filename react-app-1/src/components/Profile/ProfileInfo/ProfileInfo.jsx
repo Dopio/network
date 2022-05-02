@@ -20,9 +20,9 @@ const ProfileInfo = ({ isOwner, profile, status, updateStatus, savePhoto, savePr
     }
   };
 
-  const onSubmit = (formData) => {
-    saveProfile(formData);
-    setEditMode(false)
+  const onSubmit = async (formData) => {
+    await saveProfile(formData);
+    setEditMode(false);
   };
 
   return (
@@ -41,6 +41,7 @@ const ProfileInfo = ({ isOwner, profile, status, updateStatus, savePhoto, savePr
       {editMode ?
         <ProfileDataForm
           onSubmit={onSubmit}
+          profile={profile}
           initialValues={profile}
         />
         :
@@ -58,7 +59,7 @@ const ProfileInfo = ({ isOwner, profile, status, updateStatus, savePhoto, savePr
 };
 
 export const Contacts = ({ contactTitle, contactValue }) => {
-  return <div>{contactTitle}: ' ' {contactValue}</div>
+  return <div>{contactTitle}: {contactValue}</div>
 };
 
 export default ProfileInfo;
