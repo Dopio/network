@@ -59,6 +59,7 @@ const ProfileDataForm = React.memo(({ profile, handleSubmit }) => {
                 name={'contacts.' + key}
                 placeholder={key}
                 component={TextArea}
+                /* validate={[required]} */
               />
             </div>
           )

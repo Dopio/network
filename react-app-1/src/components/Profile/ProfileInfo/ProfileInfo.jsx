@@ -22,7 +22,7 @@ const ProfileInfo = ({ isOwner, profile, status, updateStatus, savePhoto, savePr
 
   const onSubmit = async (formData) => {
     await saveProfile(formData);
-    setEditMode(false);
+    /* setEditMode(false); */
   };
 
   return (

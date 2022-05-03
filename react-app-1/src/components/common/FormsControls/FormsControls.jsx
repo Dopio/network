@@ -40,8 +40,9 @@ export const TextArea = ({ input, meta, ...props }) => {
     );
 };
 
-export const MinHeightTextarea = ({input, ...props}) => {
-    return (
+export const MinHeightTextarea = ({ input, meta, ...props }) => {
+    const hasError = meta.error;
+    return (<>
         <div>
             <TextareaAutosize
                 aria-label="minimum height"
@@ -51,6 +52,8 @@ export const MinHeightTextarea = ({input, ...props}) => {
                 {...input}
             />
         </div>
+        {hasError !== 'error message' && <div className={classes.errorMessage}>{meta.error}</div>}
+    </>
     );
 };
 
