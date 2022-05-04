@@ -98,10 +98,14 @@ export const saveProfileThunk = (profile) => async (dispatch, getState) => {
     } else {
         let errorMessage = responce.data.messages[0];
 
-        let newErrorMessage = 'contacts.' + errorMessage.replace('Invalid url format (Contacts->', '').replace(')', '').toLowerCase();
+        let newErrorMessage = 'contacts.' + errorMessage
+            .replace('Invalid url format (Contacts->', '')
+            .replace(')', '')
+            .toLowerCase();
         console.log(newErrorMessage)
 
         let message = responce.data.messages.length > 0 ? responce.data.messages[0] : 'Some error';
-        dispatch(stopSubmit('edit_profile', { 'contacts.twitter': message }));
+        dispatch(stopSubmit('edit_profile', { newErrorMessage: message }));
+        return Promise.reject(responce.data.messages[0])
     }
 };

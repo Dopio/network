@@ -60,7 +60,8 @@ export const MinHeightTextarea = ({ input, meta, ...props }) => {
 export const UnfollowBtn = ({ unFollow, users }) => {
     return (
         <div>
-            <Button size="small"
+            <Button
+                size="small"
                 variant="contained"
                 onClick={() => {
                     unFollow(users.id)
@@ -73,7 +74,8 @@ export const UnfollowBtn = ({ unFollow, users }) => {
 export const FollowBtn = ({ follow, users }) => {
     return (
         <div>
-            <Button size="small"
+            <Button
+                size="small"
                 variant="contained"
                 onClick={() => {
                     follow(users.id)
